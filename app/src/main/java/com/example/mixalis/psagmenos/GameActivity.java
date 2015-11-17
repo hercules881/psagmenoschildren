@@ -43,7 +43,7 @@ public class GameActivity extends Activity {
     ArrayList<Integer> lastQuestionNumber = new ArrayList<>();
     int randomNumer;
     Thread thread;
-     ArrayList<Question> questions;
+    ArrayList<Question> questions;
     ExternalDbOpenHelper dbHelper;
     TextView erwtisi;
     TextView scoreview;
@@ -86,13 +86,13 @@ public class GameActivity extends Activity {
                 randomNumer = getRandomNumer(questions.size()-1);
                 //kratame ton arithmo tis proigoumenis erwtisis gia na min ksanapesei!
                 lastQuestionNumber.add(randomNumer);
-                questions.get(randomNumer - 1);
+                questions.get(randomNumer);
                 lockLoop = false;
                 GameActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        erwtisi.setText(questions.get(randomNumer - 1).getText());
-                        ArrayList<Answer> answers = (ArrayList<Answer>) dbHelper.getPossibleAnswersForQuestion(questions.get(randomNumer - 1));//apantiseis
+                        erwtisi.setText(questions.get(randomNumer).getText());
+                        ArrayList<Answer> answers = (ArrayList<Answer>) dbHelper.getPossibleAnswersForQuestion(questions.get(randomNumer));//apantiseis
                         answers.get(0);
                         apantisi1.setText(answers.get(0).getText());
                         apantisi2.setText(answers.get(1).getText());
@@ -132,7 +132,7 @@ public class GameActivity extends Activity {
 
                                 if(questionsCounter == 10) {
                                     progressStatus=0;
-                                       if(scoreteliko>highScore)
+                                    if(scoreteliko>highScore)
                                         showAlertDialog2();
                                     else
                                         showAlertDialog();
@@ -163,7 +163,7 @@ public class GameActivity extends Activity {
                                 progressStatus = 81;
 
                             }
-                           // textView.setText(progressStatus+"/"+progressBar.getMax());
+                            // textView.setText(progressStatus+"/"+progressBar.getMax());
                         }
                     });
                     //an teleiwsoun oi zwes stamata tin loopa!!!
@@ -189,12 +189,12 @@ public class GameActivity extends Activity {
                 lockLoop = true;
 
                 boolean isCorrectAnswer = false;
-                Question question = (questions.get(randomNumer-1));
+                Question question = (questions.get(randomNumer));
                 ArrayList<Answer> answers = (ArrayList<Answer>) dbHelper.getPossibleAnswersForQuestion(question);//apantiseis
                 for (Answer answer : answers) {
                     if (answer.getIsValidAnswer() == 1 && (apantisi1.getText().toString().equals(answer.getText()))) {
                         apantisi1.setBackgroundResource(R.drawable.text_cornerprassino);   //setBackgroundColor(GameActivity.this.getResources().getColor(R.color.rigth_answer_green));
-                       isCorrectAnswer = true;
+                        isCorrectAnswer = true;
                         scoreteliko=scoreteliko+score;
                         scoreview.setText(String.valueOf(scoreteliko));
                         break;
@@ -208,10 +208,10 @@ public class GameActivity extends Activity {
                     lifes--;
                 }
                 if(lifes == 0){
-                   if(scoreteliko>highScore)
-                    showAlertDialog2();
+                    if(scoreteliko>highScore)
+                        showAlertDialog2();
                     else
-                   showAlertDialog();
+                        showAlertDialog();
                     return;
                 }
 
@@ -227,7 +227,7 @@ public class GameActivity extends Activity {
 
 
                 boolean isCorrectAnswer = false;
-                Question question = (questions.get(randomNumer-1));
+                Question question = (questions.get(randomNumer));
                 ArrayList<Answer>answers=(ArrayList<Answer>) dbHelper.getPossibleAnswersForQuestion(question);//apantiseis
                 for (Answer answer :answers){
                     if(answer.getIsValidAnswer()==1 && (apantisi2.getText().toString().equals(answer.getText()))){
@@ -267,7 +267,7 @@ public class GameActivity extends Activity {
 
 
                 boolean isCorrectAnswer = false;
-                Question question = (questions.get(randomNumer-1));
+                Question question = (questions.get(randomNumer));
                 ArrayList<Answer>answers=(ArrayList<Answer>) dbHelper.getPossibleAnswersForQuestion(question);//apantiseis
                 for (Answer answer :answers){
                     if(answer.getIsValidAnswer()==1 && (apantisi3.getText().toString().equals(answer.getText()))){
@@ -305,7 +305,7 @@ public class GameActivity extends Activity {
                 lockLoop = true;
 
                 boolean isCorrectAnswer = false;
-                Question question = (questions.get(randomNumer-1));
+                Question question = (questions.get(randomNumer));
                 ArrayList<Answer>answers=(ArrayList<Answer>) dbHelper.getPossibleAnswersForQuestion(question);//apantiseis
                 for (Answer answer :answers){
                     if(answer.getIsValidAnswer()==1 && (apantisi4.getText().toString().equals(answer.getText()))){
@@ -358,7 +358,7 @@ public class GameActivity extends Activity {
 
         dialog.setCancelable(false);
         if(!GameActivity.this.isFinishing())
-        dialog.show();
+            dialog.show();
     }
 
 
@@ -388,9 +388,9 @@ public class GameActivity extends Activity {
 
 
     private int getRandomNumer(int size){
-            Random r = new Random();
-          return   randomNumer = r.nextInt(size);
-        }
+        Random r = new Random();
+        return   randomNumer = r.nextInt(size);
+    }
 
     public int getRandomWithExclusion(Random rnd, int start, int end, ArrayList<Integer> exclude) {
         Random rand = new Random();
@@ -427,12 +427,12 @@ public class GameActivity extends Activity {
                 GameActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        randomNumer = getRandomWithExclusion(new Random(), 1 , questions.size() , lastQuestionNumber);
+                        randomNumer = getRandomWithExclusion(new Random(), 1 , questions.size()-1 , lastQuestionNumber);
 
                         //kratame ton arithmo tis proigoumenis erwtisis gia na min ksanapesei!
                         lastQuestionNumber.add(randomNumer);
-                        erwtisi.setText(questions.get(randomNumer-1).getText());
-                        ArrayList<Answer>answers=(ArrayList<Answer>) dbHelper.getPossibleAnswersForQuestion(questions.get(randomNumer-1));//apantiseis
+                        erwtisi.setText(questions.get(randomNumer).getText());
+                        ArrayList<Answer>answers=(ArrayList<Answer>) dbHelper.getPossibleAnswersForQuestion(questions.get(randomNumer));//apantiseis
                         answers.get(0);
                         apantisi1.setText(answers.get(0).getText());
                         apantisi2.setText(answers.get(1).getText());
