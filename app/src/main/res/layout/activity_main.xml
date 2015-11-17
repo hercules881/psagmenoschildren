@@ -1,0 +1,84 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@drawable/fonto"
+
+    tools:context=".MainActivity">
+
+
+
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="310dp"
+        android:layout_height="130dp"
+        android:src="@drawable/boy3"
+        android:layout_marginTop="50dp"
+        android:gravity="center_horizontal"
+        android:layout_below="@id/title"
+        android:layout_centerHorizontal="true"
+        android:padding="-8dp"
+
+        />
+
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ερωτήσεις για ψαγμένους τύπους.."
+        android:gravity="center_horizontal"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        />
+
+
+    <Button
+        android:id="@+id/enarxi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Έναρξη"
+        android:gravity="center_horizontal"
+        android:layout_below="@id/image"
+        android:layout_marginTop="55dp"
+        android:textColor="#000000"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        android:clickable="true"
+        android:soundEffectsEnabled="true"
+        android:background="@drawable/my_buttoncorner"
+        android:textAllCaps="false"
+        />
+
+
+    <Button
+        android:id="@+id/title2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ρυθμίσεις"
+        android:gravity="center_horizontal"
+        android:layout_below="@id/enarxi"
+        android:layout_marginTop="20dp"
+        android:textColor="#000000"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        android:clickable="true"
+        android:soundEffectsEnabled="true"
+        android:background="@drawable/my_buttoncorner"
+        android:textAllCaps="false"
+
+        />
+
+
+
+
+
+
+</RelativeLayout>
