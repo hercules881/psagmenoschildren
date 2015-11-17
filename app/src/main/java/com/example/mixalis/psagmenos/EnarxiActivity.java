@@ -21,10 +21,9 @@ public class EnarxiActivity extends Activity {
     ListView listView;
 
     String[] katigories = new String[]{
-            "Γεωγραφία",
-            "Ιστορία",
-            "Αθλητικά",
-            "Τεχνολογία",
+            "Μαθηματικά",
+            "Γλώσσα",
+
     };
 
 
@@ -43,49 +42,14 @@ public class EnarxiActivity extends Activity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0) {
                    // Intent myIntent = new Intent(EnarxiActivity.this, GameActivity.class);
                    // EnarxiActivity.this.startActivity(myIntent);
                     Intent i = new Intent(getApplicationContext(), GameActivity.class);
                    // i.putExtra("epelexes","Γεωγραφία");
-                    i.putExtra("firstName", "Γεωγραφία");
+                    i.putExtra("firstName", katigories[position]);
                     startActivity(i);
-                }
-
-
-                if (position == 1) {
-                    // Intent myIntent = new Intent(EnarxiActivity.this, GameActivity.class);
-                    // EnarxiActivity.this.startActivity(myIntent);
-                    Intent i = new Intent(getApplicationContext(), GameActivity.class);
-                    // i.putExtra("epelexes","Γεωγραφία");
-                    i.putExtra("firstName", "Ιστορία");
-                    startActivity(i);
-                }
-
-                if (position == 2) {
-                    // Intent myIntent = new Intent(EnarxiActivity.this, GameActivity.class);
-                    // EnarxiActivity.this.startActivity(myIntent);
-                    Intent i = new Intent(getApplicationContext(), GameActivity.class);
-                    // i.putExtra("epelexes","Γεωγραφία");
-                    i.putExtra("firstName", "Αθλητικά");
-                    startActivity(i);
-                }
-
-
-                if (position == 3) {
-                    // Intent myIntent = new Intent(EnarxiActivity.this, GameActivity.class);
-                    // EnarxiActivity.this.startActivity(myIntent);
-                    Intent i = new Intent(getApplicationContext(), GameActivity.class);
-                    // i.putExtra("epelexes","Γεωγραφία");
-                    i.putExtra("firstName", "Τεχνολογία");
-                    startActivity(i);
-                }
-
-
-            }
+        }
         });
-
-
     }
 
 }
