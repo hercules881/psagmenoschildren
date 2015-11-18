@@ -23,7 +23,7 @@ public class ExternalDbOpenHelper extends DatabaseHelper {
     public static String DB_PATH;
 
     //Database file name
-    public static String DB_NAME = "psagmenosschildrendb.db";
+    public static String DB_NAME = "psagmenossschildrendb.db";
     public SQLiteDatabase database;
     public final Context context;
 
