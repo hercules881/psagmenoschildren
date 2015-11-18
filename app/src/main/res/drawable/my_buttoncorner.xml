@@ -28,7 +28,7 @@
             <stroke android:width="2dip"
                 android:color="#ff111111" />
             <gradient android:angle="45"
-                android:startColor="#9daeda"
+                android:startColor="#efefef"
                 android:endColor="#ff737373" />
             <corners
                 android:bottomLeftRadius="0dp"
