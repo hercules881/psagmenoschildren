@@ -397,9 +397,9 @@ public class GameActivity extends Activity {
         Random rand = new Random();
         int range = end - start + 1;
 
-        int random = rand.nextInt(range) + 1;
+        int random = rand.nextInt(range);
         while(exclude.contains(random)) {
-            random = rand.nextInt(range) + 1;
+            random = rand.nextInt(range);
         }
 
         return random;
@@ -428,7 +428,7 @@ public class GameActivity extends Activity {
                 GameActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        randomNumer = getRandomWithExclusion(new Random(), 1 , questions.size()-1 , lastQuestionNumber);
+                        randomNumer = getRandomWithExclusion(new Random(), 0 , questions.size()-1 , lastQuestionNumber);
 
                         //kratame ton arithmo tis proigoumenis erwtisis gia na min ksanapesei!
                         lastQuestionNumber.add(randomNumer);
