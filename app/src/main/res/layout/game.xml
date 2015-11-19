@@ -137,11 +137,11 @@
             android:layout_weight="50"
             android:textAllCaps="false"
             android:layout_marginRight="10dp"
-            android:background="@drawable/text_corner"
+            android:background="@drawable/testtext"
             android:soundEffectsEnabled="true"
             android:padding="8dp"
             android:scaleType="fitCenter"
-
+            android:textSize="18dp"
 
 
             />
@@ -157,12 +157,13 @@
             android:layout_weight="50"
             android:layout_marginLeft="10dp"
             android:textAllCaps="false"
-            android:background="@drawable/text_corner"
+            android:background="@drawable/testtext"
             android:soundEffectsEnabled="true"
             android:textStyle="italic"
-
             android:padding="7dp"
-            android:scaleType="fitCenter"/>
+            android:scaleType="fitCenter"
+            android:textSize="18dp"
+            />
     </LinearLayout>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -185,10 +186,11 @@
             android:layout_weight="50"
             android:textAllCaps="false"
             android:layout_marginRight="10dp"
-            android:background="@drawable/text_corner"
+            android:background="@drawable/testtext"
             android:soundEffectsEnabled="true"
             android:padding="8dp"
             android:scaleType="fitCenter"
+            android:textSize="18dp"
 
             />
 
@@ -203,12 +205,13 @@
             android:layout_weight="50"
             android:layout_marginLeft="10dp"
             android:textAllCaps="false"
-            android:background="@drawable/text_corner"
+            android:background="@drawable/testtext"
             android:soundEffectsEnabled="true"
             android:textStyle="italic"
-
             android:padding="7dp"
-            android:scaleType="fitCenter"/>
+            android:scaleType="fitCenter"
+            android:textSize="18dp"
+            />
 
     </LinearLayout>
 

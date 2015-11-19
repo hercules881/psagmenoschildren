@@ -31,7 +31,7 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ερωτήσεις για ψαγμένους τύπους.."
+        android:text="Ας μάθουμε παίζωντας"
         android:gravity="center_horizontal"
         android:textColor="#000000"
         android:textSize="24sp"

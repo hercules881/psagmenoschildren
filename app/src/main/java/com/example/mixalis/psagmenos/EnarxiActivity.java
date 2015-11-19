@@ -23,6 +23,7 @@ public class EnarxiActivity extends Activity {
     String[] katigories = new String[]{
             "Μαθηματικά",
             "Γλώσσα",
+            "Χρώματα"
 
     };
 
