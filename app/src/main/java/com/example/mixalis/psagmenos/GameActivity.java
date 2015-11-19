@@ -5,6 +5,8 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -53,6 +55,8 @@ public class GameActivity extends Activity {
     public final static String HIGHSCORE = "highscore";
     TextView highScoreText;
     boolean lockLoop = true;
+    boolean isAlphabete = false;
+    MediaPlayer questionMediaPlayer;
 
 
     @Override
@@ -73,6 +77,7 @@ public class GameActivity extends Activity {
         Intent intent = getIntent();
         String fName = intent.getStringExtra("firstName");
         String lName = intent.getStringExtra("lastName");
+        isAlphabete = intent.getBooleanExtra("isalphabete", false);
         epelexes=fName;
 
         highScore = (int) Preferences.get(this, GAMEACTIVITY, HIGHSCORE, 0);
@@ -85,6 +90,13 @@ public class GameActivity extends Activity {
                 questions= (ArrayList<Question>) dbHelper.getQuestionForCategory(epelexes);   //erwtiseis
                 randomNumer = getRandomNumer(questions.size()-1);
                 //kratame ton arithmo tis proigoumenis erwtisis gia na min ksanapesei!
+                if(isAlphabete){
+                    String filename = String.format("a%d",randomNumer);
+                    int id = GameActivity.this.getResources().getIdentifier(filename,"raw",GameActivity.this.getPackageName());
+                    questionMediaPlayer = MediaPlayer.create(GameActivity.this,id);
+                    questionMediaPlayer.start();
+
+                }
                 lastQuestionNumber.add(randomNumer);
                 questions.get(randomNumer);
                 lockLoop = false;
@@ -152,6 +164,13 @@ public class GameActivity extends Activity {
                                 randomNumer = getRandomWithExclusion(new Random(), 0 , questions.size()-1 , lastQuestionNumber);
                                 if(randomNumer>=questions.size())
                                     return;
+                                if(isAlphabete){
+                                    String filename = String.format("a%d",randomNumer);
+                                    int id = GameActivity.this.getResources().getIdentifier(filename,"raw",GameActivity.this.getPackageName());
+                                    questionMediaPlayer = MediaPlayer.create(GameActivity.this,id);
+                                    questionMediaPlayer.start();
+
+                                }
                                 //kratame ton arithmo tis proigoumenis erwtisis gia na min ksanapesei!
                                 lastQuestionNumber.add(randomNumer);
                                 erwtisi.setText(questions.get(randomNumer).getText());
@@ -431,6 +450,13 @@ public class GameActivity extends Activity {
                         randomNumer = getRandomWithExclusion(new Random(), 0 , questions.size()-1 , lastQuestionNumber);
 
                         //kratame ton arithmo tis proigoumenis erwtisis gia na min ksanapesei!
+                        if(isAlphabete){
+                            String filename = String.format("a%d",randomNumer);
+                            int id = GameActivity.this.getResources().getIdentifier(filename,"raw",GameActivity.this.getPackageName());
+                            questionMediaPlayer = MediaPlayer.create(GameActivity.this,id);
+                            questionMediaPlayer.start();
+
+                        }
                         lastQuestionNumber.add(randomNumer);
                         erwtisi.setText(questions.get(randomNumer).getText());
                         ArrayList<Answer>answers=(ArrayList<Answer>) dbHelper.getPossibleAnswersForQuestion(questions.get(randomNumer));//apantiseis
@@ -460,6 +486,8 @@ public class GameActivity extends Activity {
     @Override
     protected void onDestroy() {
         thread.interrupt();
+        if(questionMediaPlayer != null)
+        questionMediaPlayer.stop();
         super.onDestroy();
     }
 }

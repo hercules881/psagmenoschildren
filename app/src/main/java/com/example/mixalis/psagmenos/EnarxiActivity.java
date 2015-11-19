@@ -23,7 +23,8 @@ public class EnarxiActivity extends Activity {
     String[] katigories = new String[]{
             "Μαθηματικά",
             "Γλώσσα",
-            "Χρώματα"
+            "Χρώματα",
+            "Aλφαβήτα"
 
     };
 
@@ -48,6 +49,7 @@ public class EnarxiActivity extends Activity {
                     Intent i = new Intent(getApplicationContext(), GameActivity.class);
                    // i.putExtra("epelexes","Γεωγραφία");
                     i.putExtra("firstName", katigories[position]);
+                    i.putExtra("isalphabete", katigories[position].equals("Aλφαβήτα"));
                     startActivity(i);
         }
         });
