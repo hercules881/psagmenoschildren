@@ -18,7 +18,8 @@
     <item>
 
         <shape>
-
+            <stroke android:width="2dip"
+                android:color="#f82ecd" />
             <gradient
                 android:startColor="#ff730b"
                 android:endColor="#ffc82e"
