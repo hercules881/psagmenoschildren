@@ -539,7 +539,6 @@ public class GameActivity extends Activity {
         thread.interrupt();
         lockLoop = true;
         if(questionMediaPlayer != null) {
-            questionMediaPlayer.stop();
             questionMediaPlayer.release();
         }
         super.onDestroy();
