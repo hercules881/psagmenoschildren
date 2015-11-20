@@ -186,7 +186,8 @@ public class GameActivity extends Activity {
                                 if(isAlphabete){
                                     String filename = String.format("a%d",randomNumer);
                                     int id = GameActivity.this.getResources().getIdentifier(filename,"raw",GameActivity.this.getPackageName());
-                                    colorImage.setImageResource(id);
+                                    questionMediaPlayer = MediaPlayer.create(GameActivity.this,id);
+                                    questionMediaPlayer.start();
 
                                 }
 
