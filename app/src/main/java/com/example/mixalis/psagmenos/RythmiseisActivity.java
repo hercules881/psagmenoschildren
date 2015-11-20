@@ -31,13 +31,22 @@ public class RythmiseisActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SharedPreferences preferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
+        String currentLanguage = preferences.getString(LANGUAGE_KEY,"el");
+
+        Resources res = RythmiseisActivity.this.getResources();
+        // Change locale settings in the app.
+        Locale locale = new Locale(currentLanguage);
         setContentView(R.layout.rythmiseis);
         soundSwitch = (Switch)findViewById(R.id.soundSwitch);
         boolean isSoundEnabled = (boolean) Preferences.get(this,SOUNDSETTINGS,ISSOUNDENABLED, true);
         soundSwitch.setChecked(isSoundEnabled);
         languageSwitch = (Switch) findViewById(R.id.languageSwitch);
+        languageSwitch.setChecked(currentLanguage.equals("el"));
+
         ExternalDbOpenHelper externalDbOpenHelper = new ExternalDbOpenHelper(this);
         languageText = (TextView) findViewById(R.id.language);
+        languageText.setText(currentLanguage.equals("el")?"Ελληνικά":"English");
         soundSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isSwitchOn) {

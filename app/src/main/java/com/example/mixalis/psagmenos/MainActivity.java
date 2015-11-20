@@ -1,10 +1,14 @@
 package com.example.mixalis.psagmenos;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,6 +19,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 import java.sql.SQLException;
+import java.util.Locale;
 
 import Database.ExternalDbOpenHelper;
 import Misc.Preferences;
@@ -26,7 +31,7 @@ public class MainActivity extends Activity {
     private TextView enarxi;
     public static MediaPlayer mediaPlayer;
     ProgressBar progressBarq;
-
+    public static final String LANGUAGE_KEY = "lang";
 
 
 
@@ -40,7 +45,21 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SharedPreferences preferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
+        String currentLanguage = preferences.getString(LANGUAGE_KEY,"el");
+
+        Resources res = MainActivity.this.getResources();
+        // Change locale settings in the app.
+        Locale locale = new Locale(currentLanguage);
+        Locale.setDefault(locale);
+        DisplayMetrics dm = res.getDisplayMetrics();
+        android.content.res.Configuration conf = res.getConfiguration();
+        conf.locale = locale;
+        res.updateConfiguration(conf, dm);
+        res.getDisplayMetrics();
         setContentView(layout.activity_main);
+
+
 
         mediaPlayer = create(this, raw.back1);
         boolean isSoundEnabled = (boolean) Preferences.get(this, RythmiseisActivity.SOUNDSETTINGS, RythmiseisActivity.ISSOUNDENABLED, true);
