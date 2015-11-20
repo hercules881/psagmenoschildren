@@ -1,10 +1,12 @@
 package Database;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.example.mixalis.psagmenos.MainActivity;
 import com.example.mixalis.psagmenos.RythmiseisActivity;
 
 import java.io.File;
@@ -39,6 +41,10 @@ public class ExternalDbOpenHelper extends DatabaseHelper implements ChangeLangua
     public ExternalDbOpenHelper(Context context) {
         super(context);
         this.context = context;
+        SharedPreferences preferences = context.getSharedPreferences(context.getPackageName(), Context.MODE_PRIVATE);
+        String currentLanguage = preferences.getString(MainActivity.LANGUAGE_KEY,"el");
+        ExternalDbOpenHelper.DB_NAME =  currentLanguage.equals("el")?"psagmenossschildrendb.db":"psagmenossschildrenenglishdb.db";
+
         //Write a full path to the databases of your application
         String packageName = context.getPackageName();
         DB_PATH = String.format("//data//data//%s//databases//", packageName);

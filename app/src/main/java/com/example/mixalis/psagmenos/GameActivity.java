@@ -234,6 +234,8 @@ public class GameActivity extends Activity {
                         showAlertDialog();
                     return;
                 }
+                if(questionMediaPlayer != null)
+                questionMediaPlayer.stop();
 
                 goToNextQuestion();
 
@@ -275,7 +277,8 @@ public class GameActivity extends Activity {
                         showAlertDialog();
                     return;
                 }
-
+                if(questionMediaPlayer != null)
+                    questionMediaPlayer.stop();
                 goToNextQuestion();
             }
         });
@@ -314,7 +317,8 @@ public class GameActivity extends Activity {
                         showAlertDialog();
                     return;
                 }
-
+                if(questionMediaPlayer != null)
+                    questionMediaPlayer.stop();
                 goToNextQuestion();
             }
         });
@@ -352,7 +356,8 @@ public class GameActivity extends Activity {
                         showAlertDialog();
                     return;
                 }
-
+                if(questionMediaPlayer != null)
+                    questionMediaPlayer.stop();
                 goToNextQuestion();
             }
         });
