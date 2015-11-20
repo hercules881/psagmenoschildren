@@ -486,6 +486,7 @@ public class GameActivity extends Activity {
     @Override
     protected void onDestroy() {
         thread.interrupt();
+        lockLoop = true;
         if(questionMediaPlayer != null)
         questionMediaPlayer.stop();
         super.onDestroy();
