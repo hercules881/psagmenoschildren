@@ -57,12 +57,16 @@ public class GameActivity extends Activity {
     boolean lockLoop = true;
     boolean isAlphabete = false;
     MediaPlayer questionMediaPlayer;
+    boolean isColor = false;
+    ImageView colorImage;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.game);
+        Intent intent = getIntent();
+        isColor =  intent.getBooleanExtra("iscolor", false);
+        setContentView(!isColor?R.layout.game:R.layout.gamexrwmata);
         progressBar = (ProgressBar) findViewById(R.id.progressbar1);
         erwtisi = (TextView) findViewById(R.id.erwtisi);
         scoreview = (TextView) findViewById(R.id.score);
@@ -73,8 +77,11 @@ public class GameActivity extends Activity {
         apantisi3 = (Button) findViewById(R.id.apantisi3);
         apantisi4 = (Button) findViewById(R.id.apantisi4);
 
+        if(isColor){
+            colorImage = (ImageView) findViewById(R.id.imageColorCategory);
+        }
+
         // ProgressBar pb = new ProgressBar(this, null, android.R.attr.progressBarStyleHorizontal);
-        Intent intent = getIntent();
         String fName = intent.getStringExtra("firstName");
         String lName = intent.getStringExtra("lastName");
         isAlphabete = intent.getBooleanExtra("isalphabete", false);
@@ -97,6 +104,18 @@ public class GameActivity extends Activity {
                     questionMediaPlayer.start();
 
                 }
+                if(isColor){
+                    String filename = String.format("color%d",randomNumer);
+                    final int id = GameActivity.this.getResources().getIdentifier(filename,"drawable",GameActivity.this.getPackageName());
+                    GameActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            colorImage.setImageResource(id);
+                        }
+                    });
+
+                }
+
                 lastQuestionNumber.add(randomNumer);
                 questions.get(randomNumer);
                 lockLoop = false;
@@ -167,10 +186,10 @@ public class GameActivity extends Activity {
                                 if(isAlphabete){
                                     String filename = String.format("a%d",randomNumer);
                                     int id = GameActivity.this.getResources().getIdentifier(filename,"raw",GameActivity.this.getPackageName());
-                                    questionMediaPlayer = MediaPlayer.create(GameActivity.this,id);
-                                    questionMediaPlayer.start();
+                                    colorImage.setImageResource(id);
 
                                 }
+
                                 //kratame ton arithmo tis proigoumenis erwtisis gia na min ksanapesei!
                                 lastQuestionNumber.add(randomNumer);
                                 erwtisi.setText(questions.get(randomNumer).getText());
@@ -201,6 +220,7 @@ public class GameActivity extends Activity {
                 }
             }
         });
+        if(!isColor)
         thread.start();
 
         apantisi1.setOnClickListener(new View.OnClickListener() {
@@ -223,7 +243,7 @@ public class GameActivity extends Activity {
                     }
 
                 }
-                if(!isCorrectAnswer) {
+                if(!isCorrectAnswer && !isColor) {
                     findViewById(lifes == 3 ? R.id.zwi3 : lifes == 2 ? R.id.zwi2 : R.id.zwi1).setVisibility(View.INVISIBLE);
                     lifes--;
                 }
@@ -266,7 +286,7 @@ public class GameActivity extends Activity {
 
                 }
 
-                if(!isCorrectAnswer) {
+                if(!isCorrectAnswer && !isColor) {
                     findViewById(lifes == 3 ? R.id.zwi3 : lifes == 2 ? R.id.zwi2 : R.id.zwi1).setVisibility(View.INVISIBLE);
                     lifes--;
                 }
@@ -306,7 +326,7 @@ public class GameActivity extends Activity {
 
                     }
                 }
-                if(!isCorrectAnswer) {
+                if(!isCorrectAnswer && !isColor) {
                     findViewById(lifes == 3 ? R.id.zwi3 : lifes == 2 ? R.id.zwi2 : R.id.zwi1).setVisibility(View.INVISIBLE);
                     lifes--;
                 }
@@ -345,7 +365,7 @@ public class GameActivity extends Activity {
 
                     }
                 }
-                if(!isCorrectAnswer) {
+                if(!isCorrectAnswer && !isColor) {
                     findViewById(lifes == 3 ? R.id.zwi3 : lifes == 2 ? R.id.zwi2 : R.id.zwi1).setVisibility(View.INVISIBLE);
                     lifes--;
                 }
@@ -461,6 +481,16 @@ public class GameActivity extends Activity {
                             questionMediaPlayer = MediaPlayer.create(GameActivity.this,id);
                             questionMediaPlayer.start();
 
+                        }
+                        if(isColor){
+                            String filename = String.format("color%d",randomNumer);
+                            final int id = GameActivity.this.getResources().getIdentifier(filename,"drawable",GameActivity.this.getPackageName());
+                            GameActivity.this.runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    colorImage.setImageResource(id);
+                                }
+                            });
                         }
                         lastQuestionNumber.add(randomNumer);
                         erwtisi.setText(questions.get(randomNumer).getText());
