@@ -537,7 +537,9 @@ public class GameActivity extends Activity {
     @Override
     protected void onDestroy() {
         thread.interrupt();
+        thread = null;
         lockLoop = true;
+        progressStatus = 0;
         if(questionMediaPlayer != null) {
             questionMediaPlayer.release();
         }
