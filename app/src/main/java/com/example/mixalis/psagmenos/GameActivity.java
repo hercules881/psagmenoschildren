@@ -113,6 +113,10 @@ public class GameActivity extends Activity {
                             colorImage.setImageResource(id);
                         }
                     });
+                    String filenameSound = String.format("colorsound%d",randomNumer);
+                    int idSound = GameActivity.this.getResources().getIdentifier(filenameSound,"raw",GameActivity.this.getPackageName());
+                    questionMediaPlayer = MediaPlayer.create(GameActivity.this,idSound);
+                    questionMediaPlayer.start();
 
                 }
 
@@ -499,6 +503,10 @@ public class GameActivity extends Activity {
                                     colorImage.setImageResource(id);
                                 }
                             });
+                            String filenameSound = String.format("colorsound%d",randomNumer);
+                            int idSound = GameActivity.this.getResources().getIdentifier(filenameSound,"raw",GameActivity.this.getPackageName());
+                            questionMediaPlayer = MediaPlayer.create(GameActivity.this,idSound);
+                            questionMediaPlayer.start();
                         }
                         lastQuestionNumber.add(randomNumer);
                         erwtisi.setText(questions.get(randomNumer).getText());
