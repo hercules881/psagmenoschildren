@@ -13,11 +13,14 @@ import java.io.OutputStream;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+
+import Misc.ChangeLanguageListener;
 
 /**
  * Created by h.lionakis on 14/11/2015.
  */
-public class ExternalDbOpenHelper extends DatabaseHelper {
+public class ExternalDbOpenHelper extends DatabaseHelper implements ChangeLanguageListener {
 
     //Path to the device folder with databases
     public static String DB_PATH;
@@ -245,5 +248,9 @@ public class ExternalDbOpenHelper extends DatabaseHelper {
         super.close();
     }
 
+    //auti edw kaleitai otan allaxtei i glwssa stis rithmiseis kai fortwnei tin analogi vasi
+    @Override
+    public void onLanguageChange(Locale locale) {
 
+    }
 }

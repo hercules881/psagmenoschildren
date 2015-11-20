@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 
+import java.util.Locale;
+
 import Misc.Preferences;
 
 /**
@@ -38,4 +40,5 @@ public class RythmiseisActivity extends Activity {
 
 
     }
+
 }
