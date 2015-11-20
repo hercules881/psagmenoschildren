@@ -255,9 +255,10 @@ public class GameActivity extends Activity {
                         showAlertDialog();
                     return;
                 }
-                if(questionMediaPlayer != null)
-                questionMediaPlayer.stop();
-
+                if(questionMediaPlayer != null) {
+                    questionMediaPlayer.stop();
+                    questionMediaPlayer.release();
+                }
                 goToNextQuestion();
 
             }
@@ -298,8 +299,10 @@ public class GameActivity extends Activity {
                         showAlertDialog();
                     return;
                 }
-                if(questionMediaPlayer != null)
+                if(questionMediaPlayer != null) {
                     questionMediaPlayer.stop();
+                    questionMediaPlayer.release();
+                }
                 goToNextQuestion();
             }
         });
@@ -338,8 +341,10 @@ public class GameActivity extends Activity {
                         showAlertDialog();
                     return;
                 }
-                if(questionMediaPlayer != null)
+                if(questionMediaPlayer != null) {
                     questionMediaPlayer.stop();
+                    questionMediaPlayer.release();
+                }
                 goToNextQuestion();
             }
         });
@@ -377,8 +382,10 @@ public class GameActivity extends Activity {
                         showAlertDialog();
                     return;
                 }
-                if(questionMediaPlayer != null)
+                if(questionMediaPlayer != null) {
                     questionMediaPlayer.stop();
+                    questionMediaPlayer.release();
+                }
                 goToNextQuestion();
             }
         });
@@ -523,8 +530,10 @@ public class GameActivity extends Activity {
     protected void onDestroy() {
         thread.interrupt();
         lockLoop = true;
-        if(questionMediaPlayer != null)
-        questionMediaPlayer.stop();
+        if(questionMediaPlayer != null) {
+            questionMediaPlayer.stop();
+            questionMediaPlayer.release();
+        }
         super.onDestroy();
     }
 }
