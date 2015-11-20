@@ -48,8 +48,9 @@ public class EnarxiActivity extends Activity {
                    // EnarxiActivity.this.startActivity(myIntent);
                     Intent i = new Intent(getApplicationContext(), GameActivity.class);
                    // i.putExtra("epelexes","Γεωγραφία");
+
                     i.putExtra("firstName", katigories[position]);
-                    i.putExtra("isalphabete", katigories[position].equals("Aλφαβήτα"));
+                i.putExtra("isalphabete", katigories[position].equals("Aλφαβήτα"));
                     startActivity(i);
         }
         });
