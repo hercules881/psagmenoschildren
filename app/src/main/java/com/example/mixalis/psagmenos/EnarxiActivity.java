@@ -45,7 +45,7 @@ public class EnarxiActivity extends Activity {
                    // i.putExtra("epelexes","Γεωγραφία");
 
                     i.putExtra("firstName", katigories[position]);
-                i.putExtra("isalphabete", katigories[position].equals("Aλφαβήτα"));
+                i.putExtra("isalphabete", katigories[position].equals(EnarxiActivity.this.getString(R.string.alphabete)));
                     startActivity(i);
         }
         });
