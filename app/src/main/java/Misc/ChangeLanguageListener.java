@@ -7,5 +7,6 @@ import java.util.Locale;
  */
 
 public interface  ChangeLanguageListener{
-    void onLanguageChange(Locale locale);
+    //auti edw kaleitai otan allaxtei i glwssa stis rithmiseis kai fortwnei tin analogi vasi
+    void onLanguageChange(boolean isGreekLanguage);
 }

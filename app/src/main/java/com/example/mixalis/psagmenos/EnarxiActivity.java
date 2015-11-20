@@ -20,21 +20,15 @@ import static android.media.MediaPlayer.create;
  */
 public class EnarxiActivity extends Activity {
     ListView listView;
-
-    String[] katigories = new String[]{
-            "Μαθηματικά",
-            "Γλώσσα",
-            "Χρώματα",
-            "Aλφαβήτα"
-
-    };
+    String[] katigories;
 
 
-    @Override
+
+    @ Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.enarxi);
-
+        initCats();
         CustomAdapter adapter = new CustomAdapter(this, katigories);
         listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(adapter);
@@ -55,6 +49,16 @@ public class EnarxiActivity extends Activity {
                     startActivity(i);
         }
         });
+    }
+
+    private void initCats() {
+              katigories = new String[]{
+                EnarxiActivity.this.getString(R.string.maths),
+                EnarxiActivity.this.getString(R.string.languageCategory),
+                EnarxiActivity.this.getString(R.string.colors),
+                EnarxiActivity.this.getString(R.string.alphabete)
+
+        };
     }
 
 }

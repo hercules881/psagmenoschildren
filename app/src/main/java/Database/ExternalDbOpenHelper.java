@@ -5,6 +5,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.example.mixalis.psagmenos.RythmiseisActivity;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -45,6 +47,7 @@ public class ExternalDbOpenHelper extends DatabaseHelper implements ChangeLangua
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        RythmiseisActivity.setOnChangeLanguageListener(this);
     }
 
     //This piece of code will create a database if it’s not yet created
@@ -250,7 +253,10 @@ public class ExternalDbOpenHelper extends DatabaseHelper implements ChangeLangua
 
     //auti edw kaleitai otan allaxtei i glwssa stis rithmiseis kai fortwnei tin analogi vasi
     @Override
-    public void onLanguageChange(Locale locale) {
-
+    public void onLanguageChange(boolean isGreekLanguage) {
+       if( isGreekLanguage)
+        DB_NAME = "psagmenossschildrendb.db";
+        else
+           DB_NAME = "psagmenossschildrenenglishdb.db";
     }
 }

@@ -3,4 +3,8 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="maths">Μαθηματικά</string>
+    <string name="languageCategory">Γλώσσα</string>
+    <string name="colors">Χρώματα</string>
+    <string name="alphabete">Aλφαβήτα</string>
 </resources>
