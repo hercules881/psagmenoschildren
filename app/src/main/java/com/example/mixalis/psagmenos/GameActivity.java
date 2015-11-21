@@ -272,7 +272,7 @@ public class GameActivity extends Activity {
                         }
                     }else{
                         if (answer.getIsValidAnswer() == 1 && (apantisi1.getText().toString().equals(answer.getText()))) {
-                            String filename = "success";
+                            String filename =currentLanguage.equals("el")? "success":"correct";
                             int id = GameActivity.this.getResources().getIdentifier(filename,"raw",GameActivity.this.getPackageName());
                             colorMediaPlayer = MediaPlayer.create(GameActivity.this,id);
                             colorMediaPlayer.start();
@@ -289,7 +289,7 @@ public class GameActivity extends Activity {
                     lifes--;
                 }
                 if(!isCorrectAnswer && isColor) {
-                    String filename = "failure";
+                    String filename = currentLanguage.equals("el")?"failure":"wrong";
                     int id = GameActivity.this.getResources().getIdentifier(filename,"raw",GameActivity.this.getPackageName());
                     colorMediaPlayer = MediaPlayer.create(GameActivity.this,id);
                     colorMediaPlayer.start();
@@ -332,7 +332,7 @@ public class GameActivity extends Activity {
                         }
                     }else{
                         if (answer.getIsValidAnswer() == 1 && (apantisi2.getText().toString().equals(answer.getText()))) {
-                            String filename = "success";
+                            String filename =currentLanguage.equals("el")? "success":"correct";
                             int id = GameActivity.this.getResources().getIdentifier(filename,"raw",GameActivity.this.getPackageName());
                             colorMediaPlayer = MediaPlayer.create(GameActivity.this,id);
                             colorMediaPlayer.start();
@@ -350,7 +350,7 @@ public class GameActivity extends Activity {
                     lifes--;
                 }
                 if(!isCorrectAnswer && isColor) {
-                    String filename = "failure";
+                    String filename = currentLanguage.equals("el")?"failure":"wrong";
                     int id = GameActivity.this.getResources().getIdentifier(filename,"raw",GameActivity.this.getPackageName());
                     colorMediaPlayer = MediaPlayer.create(GameActivity.this,id);
                     colorMediaPlayer.start();
@@ -391,7 +391,7 @@ public class GameActivity extends Activity {
                         }
                     }else{
                         if (answer.getIsValidAnswer() == 1 && (apantisi3.getText().toString().equals(answer.getText()))) {
-                            String filename = "success";
+                            String filename =currentLanguage.equals("el")? "success":"correct";
                             int id = GameActivity.this.getResources().getIdentifier(filename,"raw",GameActivity.this.getPackageName());
                             colorMediaPlayer = MediaPlayer.create(GameActivity.this,id);
                             colorMediaPlayer.start();
@@ -408,7 +408,7 @@ public class GameActivity extends Activity {
                     lifes--;
                 }
                 if(!isCorrectAnswer && isColor) {
-                    String filename = "failure";
+                    String filename = currentLanguage.equals("el")?"failure":"wrong";
                     int id = GameActivity.this.getResources().getIdentifier(filename,"raw",GameActivity.this.getPackageName());
                     colorMediaPlayer = MediaPlayer.create(GameActivity.this,id);
                     colorMediaPlayer.start();
@@ -448,7 +448,7 @@ public class GameActivity extends Activity {
                         }
                     }else{
                         if (answer.getIsValidAnswer() == 1 && (apantisi4.getText().toString().equals(answer.getText()))) {
-                            String filename = "success";
+                            String filename =currentLanguage.equals("el")? "success":"correct";
                             int id = GameActivity.this.getResources().getIdentifier(filename,"raw",GameActivity.this.getPackageName());
                             colorMediaPlayer = MediaPlayer.create(GameActivity.this,id);
                             colorMediaPlayer.start();
@@ -465,7 +465,7 @@ public class GameActivity extends Activity {
                     lifes--;
                 }
                 if(!isCorrectAnswer && isColor) {
-                    String filename = "failure";
+                    String filename = currentLanguage.equals("el")?"failure":"wrong";
                     int id = GameActivity.this.getResources().getIdentifier(filename,"raw",GameActivity.this.getPackageName());
                     colorMediaPlayer = MediaPlayer.create(GameActivity.this,id);
                     colorMediaPlayer.start();
@@ -638,7 +638,7 @@ public class GameActivity extends Activity {
                 });
 
             }
-        }, isColor?4000:1000);
+        }, isColor?2000:1000);
     }
 
     @Override
