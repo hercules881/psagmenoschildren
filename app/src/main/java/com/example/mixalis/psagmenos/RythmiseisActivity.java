@@ -27,6 +27,8 @@ public class RythmiseisActivity extends Activity {
     Switch languageSwitch;
     public static final String LANGUAGE_KEY = "lang";
     TextView languageText;
+    static TextView soundText;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class RythmiseisActivity extends Activity {
         Locale locale = new Locale(currentLanguage);
         setContentView(R.layout.rythmiseis);
         soundSwitch = (Switch)findViewById(R.id.soundSwitch);
+        soundText = (TextView)findViewById(R.id.sound_on_off);
         boolean isSoundEnabled = (boolean) Preferences.get(this,SOUNDSETTINGS,ISSOUNDENABLED, true);
         soundSwitch.setChecked(isSoundEnabled);
         languageSwitch = (Switch) findViewById(R.id.languageSwitch);
@@ -56,6 +59,7 @@ public class RythmiseisActivity extends Activity {
                 else{
                     MainActivity.mediaPlayer.pause();
                 }
+
                 Preferences.set(RythmiseisActivity.this,SOUNDSETTINGS,ISSOUNDENABLED, isSwitchOn);
             }
         });
@@ -84,8 +88,7 @@ public class RythmiseisActivity extends Activity {
                 editor.putString(LANGUAGE_KEY, !b ? "en" : "el");
                 editor.apply();
                 changeLanguageListener.onLanguageChange(b);
-
-
+                soundText.setText(R.string.sound);
 
             }
         });

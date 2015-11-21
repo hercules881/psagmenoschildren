@@ -7,4 +7,9 @@
     <string name="languageCategory">Γλώσσα</string>
     <string name="colors">Χρώματα</string>
     <string name="alphabete">Aλφαβήτα</string>
+    <string name="start">Έναρξη</string>
+    <string name="settings">Ρυθμίσεις</string>
+    <string name="playlearn">Ας μάθουμε παίζοντας</string>
+    <string name="sound">Ήχος</string>
+    <string name="selectCategory">Διάλεξε μία κατηγορία</string>
 </resources>

@@ -29,9 +29,12 @@ import static com.example.mixalis.psagmenos.R.*;
 
 public class MainActivity extends Activity {
     private TextView enarxi;
+    private TextView settings;
+    private TextView playAndLearn;
     public static MediaPlayer mediaPlayer;
     ProgressBar progressBarq;
     public static final String LANGUAGE_KEY = "lang";
+
 
 
 
@@ -74,6 +77,8 @@ public class MainActivity extends Activity {
         }
 
         enarxi = (TextView) findViewById(id.enarxi);
+        settings = (TextView) findViewById(R.id.title2);
+        playAndLearn = (TextView) findViewById(R.id.title);
         enarxi.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
 
@@ -127,5 +132,13 @@ public class MainActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onResume() {
+        enarxi.setText(R.string.start);
+        settings.setText(R.string.settings);
+        playAndLearn.setText(R.string.playlearn);
+        super.onResume();
     }
 }
