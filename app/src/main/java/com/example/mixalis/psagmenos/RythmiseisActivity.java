@@ -44,6 +44,8 @@ public class RythmiseisActivity extends Activity {
         soundText = (TextView)findViewById(R.id.sound_on_off);
         boolean isSoundEnabled = (boolean) Preferences.get(this,SOUNDSETTINGS,ISSOUNDENABLED, true);
         soundSwitch.setChecked(isSoundEnabled);
+        soundSwitch.setTextOff("");
+        soundSwitch.setTextOn("");
         languageSwitch = (Switch) findViewById(R.id.languageSwitch);
         languageSwitch.setChecked(currentLanguage.equals("el"));
 
