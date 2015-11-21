@@ -19,6 +19,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -59,10 +60,12 @@ public class GameActivity extends Activity {
     boolean lockLoop = true;
     boolean isAlphabete = false;
     MediaPlayer questionMediaPlayer;
+    MediaPlayer colorMediaPlayer;
     boolean isColor = false;
     ImageView colorImage;
     String currentLanguage;
-
+    Integer[] drawbleAnswersId = new Integer[]{R.drawable.text_cornermauro, R.drawable.text_cornermple,R.drawable.text_cornerprassino, R.drawable.text_cornerkokkino,R.drawable.text_cornerkafe, R.drawable.text_cornerkitrino, R.drawable.text_corneraspro};
+    HashMap<String,Integer> mapColorsToBackground;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +85,7 @@ public class GameActivity extends Activity {
 
         if(isColor){
             colorImage = (ImageView) findViewById(R.id.imageColorCategory);
+            createHashMap();
         }
 
         // ProgressBar pb = new ProgressBar(this, null, android.R.attr.progressBarStyleHorizontal);
@@ -121,6 +125,7 @@ public class GameActivity extends Activity {
                     int idSound = GameActivity.this.getResources().getIdentifier(filenameSound,"raw",GameActivity.this.getPackageName());
                     questionMediaPlayer = MediaPlayer.create(GameActivity.this,idSound);
                     questionMediaPlayer.start();
+
                 }
 
                 lastQuestionNumber.add(randomNumer);
@@ -136,6 +141,13 @@ public class GameActivity extends Activity {
                         apantisi2.setText(answers.get(1).getText());
                         apantisi3.setText(answers.get(2).getText());
                         apantisi4.setText(answers.get(3).getText());
+                        if(isColor){
+                            apantisi1.setBackgroundResource(mapColorsToBackground.get(apantisi1.getText().toString().trim()));
+                            apantisi2.setBackgroundResource(mapColorsToBackground.get(apantisi2.getText().toString().trim()));
+                            apantisi3.setBackgroundResource(mapColorsToBackground.get(apantisi3.getText().toString().trim()));
+                            apantisi4.setBackgroundResource(mapColorsToBackground.get(apantisi4.getText().toString().trim()));
+
+                        }
                     }
                 });
 
@@ -207,6 +219,13 @@ public class GameActivity extends Activity {
                                 apantisi2.setText(answers.get(1).getText());
                                 apantisi3.setText(answers.get(2).getText());
                                 apantisi4.setText(answers.get(3).getText());
+                                if(isColor){
+                                    apantisi1.setBackgroundResource(mapColorsToBackground.get(apantisi1.getText().toString().trim()));
+                                    apantisi2.setBackgroundResource(mapColorsToBackground.get(apantisi2.getText().toString().trim()));
+                                    apantisi3.setBackgroundResource(mapColorsToBackground.get(apantisi3.getText().toString().trim()));
+                                    apantisi4.setBackgroundResource(mapColorsToBackground.get(apantisi4.getText().toString().trim()));
+
+                                }
                                 progressStatus = 81;
 
                             }
@@ -240,21 +259,41 @@ public class GameActivity extends Activity {
                 Question question = (questions.get(randomNumer));
                 ArrayList<Answer> answers = (ArrayList<Answer>) dbHelper.getPossibleAnswersForQuestion(question);//apantiseis
                 for (Answer answer : answers) {
-                    if (answer.getIsValidAnswer() == 1 && (apantisi1.getText().toString().equals(answer.getText()))) {
-                        apantisi1.setBackgroundResource(R.drawable.text_cornerprassino);   //setBackgroundColor(GameActivity.this.getResources().getColor(R.color.rigth_answer_green));
-                        isCorrectAnswer = true;
-                        scoreteliko=scoreteliko+score;
-                        scoreview.setText(String.valueOf(scoreteliko));
-                        break;
-                    } else {
-                        apantisi1.setBackgroundResource(R.drawable.text_cornerkokkino);   //setBackgroundColor(GameActivity.this.getResources().getColor(R.color.rigth_answer_green));
-                    }
+                    if(!isColor) {
+                        if (answer.getIsValidAnswer() == 1 && (apantisi1.getText().toString().equals(answer.getText()))) {
+                            apantisi1.setBackgroundResource(R.drawable.text_cornerprassino);   //setBackgroundColor(GameActivity.this.getResources().getColor(R.color.rigth_answer_green));
+                            isCorrectAnswer = true;
+                            scoreteliko = scoreteliko + score;
+                            scoreview.setText(String.valueOf(scoreteliko));
+                            break;
+                        } else {
+                            apantisi1.setBackgroundResource(R.drawable.text_cornerkokkino);   //setBackgroundColor(GameActivity.this.getResources().getColor(R.color.rigth_answer_green));
+                        }
+                    }else{
+                        if (answer.getIsValidAnswer() == 1 && (apantisi1.getText().toString().equals(answer.getText()))) {
+                            String filename = "success";
+                            int id = GameActivity.this.getResources().getIdentifier(filename,"raw",GameActivity.this.getPackageName());
+                            colorMediaPlayer = MediaPlayer.create(GameActivity.this,id);
+                            colorMediaPlayer.start();
+                            isCorrectAnswer = true;
+                            scoreteliko = scoreteliko + score;
+                            scoreview.setText(String.valueOf(scoreteliko));
+                            break;
+                        }
 
+                    }
                 }
                 if(!isCorrectAnswer && !isColor) {
                     findViewById(lifes == 3 ? R.id.zwi3 : lifes == 2 ? R.id.zwi2 : R.id.zwi1).setVisibility(View.INVISIBLE);
                     lifes--;
                 }
+                if(!isCorrectAnswer && isColor) {
+                    String filename = "failure";
+                    int id = GameActivity.this.getResources().getIdentifier(filename,"raw",GameActivity.this.getPackageName());
+                    colorMediaPlayer = MediaPlayer.create(GameActivity.this,id);
+                    colorMediaPlayer.start();
+                }
+
                 if(lifes == 0){
                     if(scoreteliko>highScore)
                         showAlertDialog2();
@@ -263,7 +302,6 @@ public class GameActivity extends Activity {
                     return;
                 }
                 if(questionMediaPlayer != null) {
-                    questionMediaPlayer.stop();
                     questionMediaPlayer.release();
                 }
                 goToNextQuestion();
@@ -281,23 +319,40 @@ public class GameActivity extends Activity {
                 Question question = (questions.get(randomNumer));
                 ArrayList<Answer>answers=(ArrayList<Answer>) dbHelper.getPossibleAnswersForQuestion(question);//apantiseis
                 for (Answer answer :answers){
-                    if(answer.getIsValidAnswer()==1 && (apantisi2.getText().toString().equals(answer.getText()))){
-                        apantisi2.setBackgroundResource(R.drawable.text_cornerprassino);
-                        isCorrectAnswer = true;
-                        scoreteliko=scoreteliko+score;
-                        scoreview.setText(String.valueOf(scoreteliko));
-                        break;
-                    }
-                    else {
-                        apantisi2.setBackgroundResource(R.drawable.text_cornerkokkino);
+                    if(!isColor) {
+                        if (answer.getIsValidAnswer() == 1 && (apantisi2.getText().toString().equals(answer.getText()))) {
+                            apantisi2.setBackgroundResource(R.drawable.text_cornerprassino);   //setBackgroundColor(GameActivity.this.getResources().getColor(R.color.rigth_answer_green));
+                            isCorrectAnswer = true;
+                            scoreteliko = scoreteliko + score;
+                            scoreview.setText(String.valueOf(scoreteliko));
+                            break;
+                        } else {
+                            apantisi2.setBackgroundResource(R.drawable.text_cornerkokkino);   //setBackgroundColor(GameActivity.this.getResources().getColor(R.color.rigth_answer_green));
+                        }
+                    }else{
+                        if (answer.getIsValidAnswer() == 1 && (apantisi2.getText().toString().equals(answer.getText()))) {
+                            String filename = "success";
+                            int id = GameActivity.this.getResources().getIdentifier(filename,"raw",GameActivity.this.getPackageName());
+                            colorMediaPlayer = MediaPlayer.create(GameActivity.this,id);
+                            colorMediaPlayer.start();
+                            isCorrectAnswer = true;
+                            scoreteliko = scoreteliko + score;
+                            scoreview.setText(String.valueOf(scoreteliko));
+                            break;
+                        }
 
                     }
-
                 }
 
                 if(!isCorrectAnswer && !isColor) {
                     findViewById(lifes == 3 ? R.id.zwi3 : lifes == 2 ? R.id.zwi2 : R.id.zwi1).setVisibility(View.INVISIBLE);
                     lifes--;
+                }
+                if(!isCorrectAnswer && isColor) {
+                    String filename = "failure";
+                    int id = GameActivity.this.getResources().getIdentifier(filename,"raw",GameActivity.this.getPackageName());
+                    colorMediaPlayer = MediaPlayer.create(GameActivity.this,id);
+                    colorMediaPlayer.start();
                 }
                 if(lifes == 0){
                     if(scoreteliko>highScore)
@@ -307,7 +362,6 @@ public class GameActivity extends Activity {
                     return;
                 }
                 if(questionMediaPlayer != null) {
-                    questionMediaPlayer.stop();
                     questionMediaPlayer.release();
                 }
                 goToNextQuestion();
@@ -324,22 +378,39 @@ public class GameActivity extends Activity {
                 Question question = (questions.get(randomNumer));
                 ArrayList<Answer>answers=(ArrayList<Answer>) dbHelper.getPossibleAnswersForQuestion(question);//apantiseis
                 for (Answer answer :answers){
-                    if(answer.getIsValidAnswer()==1 && (apantisi3.getText().toString().equals(answer.getText()))){
-                        apantisi3.setBackgroundResource(R.drawable.text_cornerprassino);
-                        isCorrectAnswer = true;
-                        scoreteliko=scoreteliko+score;
-                        scoreview.setText(String.valueOf(scoreteliko));
-                        break;
-                    }
-                    else {
-                        apantisi3.setBackgroundResource(R.drawable.text_cornerkokkino);
-
+                    if(!isColor) {
+                        if (answer.getIsValidAnswer() == 1 && (apantisi3.getText().toString().equals(answer.getText()))) {
+                            apantisi3.setBackgroundResource(R.drawable.text_cornerprassino);   //setBackgroundColor(GameActivity.this.getResources().getColor(R.color.rigth_answer_green));
+                            isCorrectAnswer = true;
+                            scoreteliko = scoreteliko + score;
+                            scoreview.setText(String.valueOf(scoreteliko));
+                            break;
+                        } else {
+                            apantisi3.setBackgroundResource(R.drawable.text_cornerkokkino);   //setBackgroundColor(GameActivity.this.getResources().getColor(R.color.rigth_answer_green));
+                        }
+                    }else{
+                        if (answer.getIsValidAnswer() == 1 && (apantisi3.getText().toString().equals(answer.getText()))) {
+                            String filename = "success";
+                            int id = GameActivity.this.getResources().getIdentifier(filename,"raw",GameActivity.this.getPackageName());
+                            colorMediaPlayer = MediaPlayer.create(GameActivity.this,id);
+                            colorMediaPlayer.start();
+                            isCorrectAnswer = true;
+                            scoreteliko = scoreteliko + score;
+                            scoreview.setText(String.valueOf(scoreteliko));
+                            break;
+                        }
 
                     }
                 }
                 if(!isCorrectAnswer && !isColor) {
                     findViewById(lifes == 3 ? R.id.zwi3 : lifes == 2 ? R.id.zwi2 : R.id.zwi1).setVisibility(View.INVISIBLE);
                     lifes--;
+                }
+                if(!isCorrectAnswer && isColor) {
+                    String filename = "failure";
+                    int id = GameActivity.this.getResources().getIdentifier(filename,"raw",GameActivity.this.getPackageName());
+                    colorMediaPlayer = MediaPlayer.create(GameActivity.this,id);
+                    colorMediaPlayer.start();
                 }
                 if(lifes == 0){
                     if(scoreteliko>highScore)
@@ -349,7 +420,6 @@ public class GameActivity extends Activity {
                     return;
                 }
                 if(questionMediaPlayer != null) {
-                    questionMediaPlayer.stop();
                     questionMediaPlayer.release();
                 }
                 goToNextQuestion();
@@ -365,22 +435,39 @@ public class GameActivity extends Activity {
                 Question question = (questions.get(randomNumer));
                 ArrayList<Answer>answers=(ArrayList<Answer>) dbHelper.getPossibleAnswersForQuestion(question);//apantiseis
                 for (Answer answer :answers){
-                    if(answer.getIsValidAnswer()==1 && (apantisi4.getText().toString().equals(answer.getText()))){
-                        apantisi4.setBackgroundResource(R.drawable.text_cornerprassino);
-                        isCorrectAnswer = true;
-                        scoreteliko=scoreteliko+score;
-                        scoreview.setText(String.valueOf(scoreteliko));
-                        break;
-                    }
-                    else {
-                        apantisi4.setBackgroundResource(R.drawable.text_cornerkokkino);
-
+                    if(!isColor) {
+                        if (answer.getIsValidAnswer() == 1 && (apantisi4.getText().toString().equals(answer.getText()))) {
+                            apantisi4.setBackgroundResource(R.drawable.text_cornerprassino);   //setBackgroundColor(GameActivity.this.getResources().getColor(R.color.rigth_answer_green));
+                            isCorrectAnswer = true;
+                            scoreteliko = scoreteliko + score;
+                            scoreview.setText(String.valueOf(scoreteliko));
+                            break;
+                        } else {
+                            apantisi4.setBackgroundResource(R.drawable.text_cornerkokkino);   //setBackgroundColor(GameActivity.this.getResources().getColor(R.color.rigth_answer_green));
+                        }
+                    }else{
+                        if (answer.getIsValidAnswer() == 1 && (apantisi4.getText().toString().equals(answer.getText()))) {
+                            String filename = "success";
+                            int id = GameActivity.this.getResources().getIdentifier(filename,"raw",GameActivity.this.getPackageName());
+                            colorMediaPlayer = MediaPlayer.create(GameActivity.this,id);
+                            colorMediaPlayer.start();
+                            isCorrectAnswer = true;
+                            scoreteliko = scoreteliko + score;
+                            scoreview.setText(String.valueOf(scoreteliko));
+                            break;
+                        }
 
                     }
                 }
                 if(!isCorrectAnswer && !isColor) {
                     findViewById(lifes == 3 ? R.id.zwi3 : lifes == 2 ? R.id.zwi2 : R.id.zwi1).setVisibility(View.INVISIBLE);
                     lifes--;
+                }
+                if(!isCorrectAnswer && isColor) {
+                    String filename = "failure";
+                    int id = GameActivity.this.getResources().getIdentifier(filename,"raw",GameActivity.this.getPackageName());
+                    colorMediaPlayer = MediaPlayer.create(GameActivity.this,id);
+                    colorMediaPlayer.start();
                 }
                 if(lifes == 0){
                     if(scoreteliko>highScore)
@@ -390,13 +477,21 @@ public class GameActivity extends Activity {
                     return;
                 }
                 if(questionMediaPlayer != null) {
-                    questionMediaPlayer.stop();
                     questionMediaPlayer.release();
                 }
                 goToNextQuestion();
             }
         });
 
+    }
+
+    private void createHashMap() {
+        String[] colorAnswersId = new String[]{this.getString(R.string.black), this.getString(R.string.blue),this.getString(R.string.green), this.getString(R.string.red),this.getString(R.string.brown), this.getString(R.string.yellow), this.getString(R.string.white)};
+
+        mapColorsToBackground  = new HashMap<>();
+        for(int i = 0; i< colorAnswersId.length; i++){
+           mapColorsToBackground.put(colorAnswersId[i].trim(),drawbleAnswersId[i]) ;
+        }
     }
 
     private void showAlertDialog() {
@@ -488,7 +583,8 @@ public class GameActivity extends Activity {
                     @Override
                     public void run() {
                         randomNumer = getRandomWithExclusion(new Random(), 0 , questions.size()-1 , lastQuestionNumber);
-
+                        if(colorMediaPlayer!=null)
+                        colorMediaPlayer.release();
                         //kratame ton arithmo tis proigoumenis erwtisis gia na min ksanapesei!
                         if(isAlphabete){
                             String filename = String.format(currentLanguage.equals("el")?"a%d":"englisha%d",randomNumer);
@@ -523,6 +619,13 @@ public class GameActivity extends Activity {
                         apantisi2.setBackgroundResource(R.drawable.text_corner);
                         apantisi3.setBackgroundResource(R.drawable.text_corner);
                         apantisi4.setBackgroundResource(R.drawable.text_corner);
+                        if(isColor){
+                            apantisi1.setBackgroundResource(mapColorsToBackground.get(apantisi1.getText().toString()));
+                            apantisi2.setBackgroundResource(mapColorsToBackground.get(apantisi2.getText().toString()));
+                            apantisi3.setBackgroundResource(mapColorsToBackground.get(apantisi3.getText().toString()));
+                            apantisi4.setBackgroundResource(mapColorsToBackground.get(apantisi4.getText().toString()));
+
+                        }
                         apantisi1.setEnabled(true);
                         apantisi2.setEnabled(true);
                         apantisi3.setEnabled(true);
@@ -534,7 +637,7 @@ public class GameActivity extends Activity {
                 });
 
             }
-        }, 1000);
+        }, isColor?4000:1000);
     }
 
     @Override
@@ -545,6 +648,9 @@ public class GameActivity extends Activity {
         progressStatus = 0;
         if(questionMediaPlayer != null) {
             questionMediaPlayer.release();
+        }
+        if(colorMediaPlayer != null){
+            colorMediaPlayer.release();
         }
         super.onDestroy();
     }

@@ -13,5 +13,11 @@
     <string name="playlearn">Play and learn</string>
     <string name="sound">Sound</string>
     <string name="selectCategory">Select category</string>
-
+    <string name="white">White</string>
+    <string name="blue">Blue</string>
+    <string name="black">Black</string>
+    <string name="red">Red</string>
+    <string name="green">Green</string>
+    <string name="yellow">Yellow</string>
+    <string name="brown">Brown</string>
 </resources>

@@ -12,4 +12,11 @@
     <string name="playlearn">Ας μάθουμε παίζοντας</string>
     <string name="sound">Ήχος</string>
     <string name="selectCategory">Διάλεξε μία κατηγορία</string>
+    <string name="white">Άσπρο</string>
+    <string name="blue">Μπλέ</string>
+    <string name="black">Μαύρο</string>
+    <string name="red">Κόκκινο</string>
+    <string name="green">Πράσινο</string>
+    <string name="yellow">Κίτρινο</string>
+    <string name="brown">Καφέ</string>
 </resources>
