@@ -3,8 +3,10 @@ package com.example.mixalis.psagmenos;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -59,6 +61,7 @@ public class GameActivity extends Activity {
     MediaPlayer questionMediaPlayer;
     boolean isColor = false;
     ImageView colorImage;
+    String currentLanguage;
 
 
     @Override
@@ -86,7 +89,8 @@ public class GameActivity extends Activity {
         String lName = intent.getStringExtra("lastName");
         isAlphabete = intent.getBooleanExtra("isalphabete", false);
         epelexes=fName;
-
+        SharedPreferences preferences = this.getSharedPreferences(this.getPackageName(), Context.MODE_PRIVATE);
+        currentLanguage = preferences.getString(MainActivity.LANGUAGE_KEY, "el");
         highScore = (int) Preferences.get(this, GAMEACTIVITY, HIGHSCORE, 0);
         highScoreText.setText(String.valueOf(highScore));
 
@@ -98,7 +102,7 @@ public class GameActivity extends Activity {
                 randomNumer = getRandomNumer(questions.size()-1);
                 //kratame ton arithmo tis proigoumenis erwtisis gia na min ksanapesei!
                 if(isAlphabete){
-                    String filename = String.format("a%d",randomNumer);
+                    String filename = String.format(currentLanguage.equals("el")?"a%d":"englisha%d",randomNumer);
                     int id = GameActivity.this.getResources().getIdentifier(filename,"raw",GameActivity.this.getPackageName());
                     questionMediaPlayer = MediaPlayer.create(GameActivity.this,id);
                     questionMediaPlayer.start();
@@ -113,11 +117,10 @@ public class GameActivity extends Activity {
                             colorImage.setImageResource(id);
                         }
                     });
-                    String filenameSound = String.format("colorsound%d",randomNumer);
+                    String filenameSound = String.format(currentLanguage.equals("el")?"colorsound%d":"colorsoundenglish%d",randomNumer);
                     int idSound = GameActivity.this.getResources().getIdentifier(filenameSound,"raw",GameActivity.this.getPackageName());
                     questionMediaPlayer = MediaPlayer.create(GameActivity.this,idSound);
                     questionMediaPlayer.start();
-
                 }
 
                 lastQuestionNumber.add(randomNumer);
@@ -188,7 +191,7 @@ public class GameActivity extends Activity {
                                 if(randomNumer>=questions.size())
                                     return;
                                 if(isAlphabete){
-                                    String filename = String.format("a%d",randomNumer);
+                                    String filename = String.format(currentLanguage.equals("el")?"a%d":"englisha%d",randomNumer);
                                     int id = GameActivity.this.getResources().getIdentifier(filename,"raw",GameActivity.this.getPackageName());
                                     questionMediaPlayer = MediaPlayer.create(GameActivity.this,id);
                                     questionMediaPlayer.start();
@@ -226,7 +229,7 @@ public class GameActivity extends Activity {
             }
         });
         if(!isColor)
-        thread.start();
+            thread.start();
 
         apantisi1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -488,7 +491,7 @@ public class GameActivity extends Activity {
 
                         //kratame ton arithmo tis proigoumenis erwtisis gia na min ksanapesei!
                         if(isAlphabete){
-                            String filename = String.format("a%d",randomNumer);
+                            String filename = String.format(currentLanguage.equals("el")?"a%d":"englisha%d",randomNumer);
                             int id = GameActivity.this.getResources().getIdentifier(filename,"raw",GameActivity.this.getPackageName());
                             questionMediaPlayer = MediaPlayer.create(GameActivity.this,id);
                             questionMediaPlayer.start();
@@ -503,7 +506,7 @@ public class GameActivity extends Activity {
                                     colorImage.setImageResource(id);
                                 }
                             });
-                            String filenameSound = String.format("colorsound%d",randomNumer);
+                            String filenameSound = String.format(currentLanguage.equals("el")?"colorsound%d":"colorsoundenglish%d",randomNumer);
                             int idSound = GameActivity.this.getResources().getIdentifier(filenameSound,"raw",GameActivity.this.getPackageName());
                             questionMediaPlayer = MediaPlayer.create(GameActivity.this,idSound);
                             questionMediaPlayer.start();
