@@ -76,7 +76,7 @@ public class GameActivity extends Activity {
         isAlphabete = intent.getBooleanExtra("isalphabete", false);
         setContentView(!isColor && !isAlphabete ?R.layout.game:R.layout.gamexrwmata);
         if(isAlphabete)
-            findViewById(R.id.imageColorCategory).setVisibility(View.GONE);
+            findViewById(R.id.imageColorCategory).setVisibility(View.INVISIBLE);
         progressBar = (ProgressBar) findViewById(R.id.progressbar1);
         erwtisi = (TextView) findViewById(R.id.erwtisi);
         scoreview = (TextView) findViewById(R.id.score);
@@ -250,7 +250,7 @@ public class GameActivity extends Activity {
                 }
             }
         });
-        if(!isColor || !isAlphabete)
+        if(!isColor && !isAlphabete)
             thread.start();
 
         apantisi1.setOnClickListener(new View.OnClickListener() {
