@@ -66,6 +66,7 @@ public class GameActivity extends Activity {
     String currentLanguage;
     Integer[] drawbleAnswersId = new Integer[]{R.drawable.text_cornermauro, R.drawable.text_cornermple,R.drawable.text_cornerprassino, R.drawable.text_cornerkokkino,R.drawable.text_cornerkafe, R.drawable.text_cornerkitrino, R.drawable.text_corneraspro};
     HashMap<String,Integer> mapColorsToBackground;
+    Timer timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -574,7 +575,7 @@ public class GameActivity extends Activity {
         apantisi2.setEnabled(false);
         apantisi3.setEnabled(false);
         apantisi4.setEnabled(false);
-        Timer timer = new Timer();
+        timer = new Timer();
                                     /* Duration of wait */
         timer.schedule(new TimerTask() {
             @Override
@@ -646,6 +647,8 @@ public class GameActivity extends Activity {
         thread = null;
         lockLoop = true;
         progressStatus = 0;
+        if(timer != null)
+        timer.cancel();
         if(questionMediaPlayer != null) {
             questionMediaPlayer.release();
         }
