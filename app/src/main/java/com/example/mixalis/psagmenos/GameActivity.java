@@ -73,7 +73,10 @@ public class GameActivity extends Activity {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         isColor =  intent.getBooleanExtra("iscolor", false);
-        setContentView(!isColor?R.layout.game:R.layout.gamexrwmata);
+        isAlphabete = intent.getBooleanExtra("isalphabete", false);
+        setContentView(!isColor && !isAlphabete ?R.layout.game:R.layout.gamexrwmata);
+        if(isAlphabete)
+            findViewById(R.id.imageColorCategory).setVisibility(View.GONE);
         progressBar = (ProgressBar) findViewById(R.id.progressbar1);
         erwtisi = (TextView) findViewById(R.id.erwtisi);
         scoreview = (TextView) findViewById(R.id.score);
@@ -92,7 +95,6 @@ public class GameActivity extends Activity {
         // ProgressBar pb = new ProgressBar(this, null, android.R.attr.progressBarStyleHorizontal);
         String fName = intent.getStringExtra("firstName");
         String lName = intent.getStringExtra("lastName");
-        isAlphabete = intent.getBooleanExtra("isalphabete", false);
         epelexes=fName;
         SharedPreferences preferences = this.getSharedPreferences(this.getPackageName(), Context.MODE_PRIVATE);
         currentLanguage = preferences.getString(MainActivity.LANGUAGE_KEY, "el");
@@ -248,7 +250,7 @@ public class GameActivity extends Activity {
                 }
             }
         });
-        if(!isColor)
+        if(!isColor || !isAlphabete)
             thread.start();
 
         apantisi1.setOnClickListener(new View.OnClickListener() {
@@ -290,7 +292,7 @@ public class GameActivity extends Activity {
 
                     }
                 }
-                if(!isCorrectAnswer && !isColor) {
+                if(!isCorrectAnswer && !isColor && !isAlphabete) {
                     findViewById(lifes == 3 ? R.id.zwi3 : lifes == 2 ? R.id.zwi2 : R.id.zwi1).setVisibility(View.INVISIBLE);
                     lifes--;
                 }
@@ -357,7 +359,7 @@ public class GameActivity extends Activity {
                     }
                 }
 
-                if(!isCorrectAnswer && !isColor) {
+                if(!isCorrectAnswer && !isColor && !isAlphabete) {
                     findViewById(lifes == 3 ? R.id.zwi3 : lifes == 2 ? R.id.zwi2 : R.id.zwi1).setVisibility(View.INVISIBLE);
                     lifes--;
                 }
@@ -421,7 +423,7 @@ public class GameActivity extends Activity {
 
                     }
                 }
-                if(!isCorrectAnswer && !isColor) {
+                if(!isCorrectAnswer && !isColor && !isAlphabete) {
                     findViewById(lifes == 3 ? R.id.zwi3 : lifes == 2 ? R.id.zwi2 : R.id.zwi1).setVisibility(View.INVISIBLE);
                     lifes--;
                 }
@@ -484,7 +486,7 @@ public class GameActivity extends Activity {
 
                     }
                 }
-                if(!isCorrectAnswer && !isColor) {
+                if(!isCorrectAnswer && !isColor && !isAlphabete) {
                     findViewById(lifes == 3 ? R.id.zwi3 : lifes == 2 ? R.id.zwi2 : R.id.zwi1).setVisibility(View.INVISIBLE);
                     lifes--;
                 }
