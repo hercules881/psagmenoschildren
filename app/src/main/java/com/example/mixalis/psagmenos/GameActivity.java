@@ -573,6 +573,29 @@ public class GameActivity extends Activity {
 
 
 
+    private void showAlertDialog3() {
+
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.dialogcry);
+        dialog.setTitle("Tέλος..");
+        TextView text = (TextView) dialog.findViewById(R.id.text);
+        text.setText("Άς ξανά παίξουμε");
+        dialog.findViewById(R.id.dialogButtonOK).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GameActivity.this.finish();
+
+            }
+        });
+
+
+
+        dialog.setCancelable(false);
+        if(!GameActivity.this.isFinishing())
+            dialog.show();
+    }
+
+
 
 
     private int getRandomNumer(int size){

@@ -29,11 +29,11 @@ public class EnarxiActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.enarxi);
         initCats();
+
+
         CustomAdapter adapter = new CustomAdapter(this, katigories);
         listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(adapter);
-
-
 
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

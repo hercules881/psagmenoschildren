@@ -30,16 +30,14 @@ class CustomAdapter extends ArrayAdapter<String> {
 
     }
 
-    public View getView(final int position, final View view, final ViewGroup parent) {
+    public View getView( final int position, final View view, final ViewGroup parent) {
         LayoutInflater inflater=context.getLayoutInflater();
         final View rowView=inflater.inflate(R.layout.listviewenarxi, null, true);
         final TextView text1 = (TextView) rowView.findViewById(R.id.text);
 
-
        // rowView.setClickable(true);
         text1.setText(itemname[position]);
-
-                return rowView;
+        return rowView;
 
     };
 

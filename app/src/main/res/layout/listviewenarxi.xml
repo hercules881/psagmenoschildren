@@ -14,9 +14,7 @@
         android:textSize="27dp"
         android:gravity="center"
         android:background="@drawable/my_buttoncorner"
-
         />
-
 
 
 </LinearLayout>
