@@ -577,7 +577,7 @@ public class GameActivity extends Activity {
     private void showAlertDialog3() {
 
         final Dialog dialog = new Dialog(this);
-        dialog.setContentView(R.layout.dialogcry);
+        dialog.setContentView(R.layout.dilaoggelio);
         dialog.setTitle("Tέλος..");
         TextView text = (TextView) dialog.findViewById(R.id.text);
         text.setText("Άς ξανά παίξουμε");
