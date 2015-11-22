@@ -77,8 +77,11 @@ public class GameActivity extends Activity {
         isColor =  intent.getBooleanExtra("iscolor", false);
         isAlphabete = intent.getBooleanExtra("isalphabete", false);
         setContentView(!isColor && !isAlphabete ?R.layout.game:R.layout.gamexrwmata);
-        if(isAlphabete)
+        if(isAlphabete) {
             findViewById(R.id.imageColorCategory).setVisibility(View.INVISIBLE);
+            findViewById(R.id.linear4).setVisibility(View.INVISIBLE);
+            findViewById(R.id.linear5).setVisibility(View.INVISIBLE);
+        }
         progressBar = (ProgressBar) findViewById(R.id.progressbar1);
         erwtisi = (TextView) findViewById(R.id.erwtisi);
         scoreview = (TextView) findViewById(R.id.score);
@@ -92,6 +95,8 @@ public class GameActivity extends Activity {
         if(isColor){
             colorImage = (ImageView) findViewById(R.id.imageColorCategory);
             createHashMap();
+            findViewById(R.id.linear4).setVisibility(View.INVISIBLE);
+            findViewById(R.id.linear5).setVisibility(View.INVISIBLE);
         }
 
         // ProgressBar pb = new ProgressBar(this, null, android.R.attr.progressBarStyleHorizontal);
