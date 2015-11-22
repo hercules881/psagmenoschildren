@@ -573,6 +573,7 @@ public class GameActivity extends Activity {
 
 
 
+
     private void showAlertDialog3() {
 
         final Dialog dialog = new Dialog(this);
