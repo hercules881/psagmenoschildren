@@ -3,6 +3,7 @@ package com.example.mixalis.psagmenos;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -18,6 +19,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.lang.reflect.GenericArrayType;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
@@ -100,6 +102,8 @@ public class GameActivity extends Activity {
         currentLanguage = preferences.getString(MainActivity.LANGUAGE_KEY, "el");
         highScore = (int) Preferences.get(this, GAMEACTIVITY, HIGHSCORE, 0);
         highScoreText.setText(String.valueOf(highScore));
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.show();
 
         dbHelper = new ExternalDbOpenHelper(this);
         new Thread(new Runnable() {
@@ -137,6 +141,7 @@ public class GameActivity extends Activity {
                 GameActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        progressDialog.dismiss();
                         erwtisi.setText(questions.get(randomNumer).getText());
                         ArrayList<Answer> answers = (ArrayList<Answer>) dbHelper.getPossibleAnswersForQuestion(questions.get(randomNumer));//apantiseis
                         answers.get(0);
