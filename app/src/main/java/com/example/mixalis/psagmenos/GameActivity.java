@@ -621,7 +621,9 @@ public class GameActivity extends Activity {
         questionsCounter++;
         if(questionsCounter == questions.size()) {
             progressStatus=0;
-            if(scoreteliko>highScore)
+            if(isAlphabete || isColor)
+                showAlertDialog3();
+           else if(scoreteliko>highScore)
                 showAlertDialog2();
             else
                 showAlertDialog();
