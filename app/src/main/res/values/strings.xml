@@ -19,4 +19,7 @@
     <string name="green">Πράσινο</string>
     <string name="yellow">Κίτρινο</string>
     <string name="brown">Καφέ</string>
+    <string name="grey">Γκρί</string>
+    <string name="orange">Πορτοκαλί</string>
+
 </resources>

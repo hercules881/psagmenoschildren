@@ -66,7 +66,7 @@ public class GameActivity extends Activity {
     boolean isColor = false;
     ImageView colorImage;
     String currentLanguage;
-    Integer[] drawbleAnswersId = new Integer[]{R.drawable.text_cornermauro, R.drawable.text_cornermple,R.drawable.text_cornerprassino, R.drawable.text_cornerkokkino,R.drawable.text_cornerkafe, R.drawable.text_cornerkitrino, R.drawable.text_corneraspro};
+    Integer[] drawbleAnswersId = new Integer[]{R.drawable.text_cornermauro, R.drawable.text_cornermple,R.drawable.text_cornerprassino, R.drawable.text_cornerkokkino,R.drawable.text_cornerkafe, R.drawable.text_cornerkitrino, R.drawable.text_corneraspro,R.drawable.text_cornergri,R.drawable.text_cornerportokali};
     HashMap<String,Integer> mapColorsToBackground;
     Timer timer;
 
@@ -234,6 +234,7 @@ public class GameActivity extends Activity {
                                     apantisi4.setBackgroundResource(mapColorsToBackground.get(apantisi4.getText().toString().trim()));
 
                                 }
+
                                 progressStatus = 81;
 
                             }
@@ -518,7 +519,7 @@ public class GameActivity extends Activity {
     }
 
     private void createHashMap() {
-        String[] colorAnswersId = new String[]{this.getString(R.string.black), this.getString(R.string.blue),this.getString(R.string.green), this.getString(R.string.red),this.getString(R.string.brown), this.getString(R.string.yellow), this.getString(R.string.white)};
+        String[] colorAnswersId = new String[]{this.getString(R.string.black), this.getString(R.string.blue),this.getString(R.string.green), this.getString(R.string.red),this.getString(R.string.brown), this.getString(R.string.yellow), this.getString(R.string.white), this.getString(R.string.grey), this.getString(R.string.orange)};
 
         mapColorsToBackground  = new HashMap<>();
         for(int i = 0; i< colorAnswersId.length; i++){
