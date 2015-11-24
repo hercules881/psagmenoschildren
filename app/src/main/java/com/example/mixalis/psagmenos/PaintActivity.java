@@ -203,6 +203,7 @@ public class PaintActivity extends Activity implements ColorPickerDialog.OnColor
       // mCanvas.isOpaque();
 
         mCanvas.drawColor(Color.BLACK, PorterDuff.Mode.CLEAR);
+        dv.invalidate();
 
     }
 
