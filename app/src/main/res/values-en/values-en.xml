@@ -22,4 +22,12 @@
     <string name="brown">Brown</string>
     <string name="grey">Grey</string>
     <string name="orange">Orange</string>
+
+    <string name="paint">Paint</string>
+    <string name="tittledialogcry">I am sorry,you lost...</string>
+    <string name="tittledialog3">End</string>
+    <string name="letsplayagain">Lets play again</string>
+
+
+
 </resources>

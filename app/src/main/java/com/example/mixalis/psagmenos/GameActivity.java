@@ -31,6 +31,8 @@ import Database.ExternalDbOpenHelper;
 import Database.Question;
 import Misc.Preferences;
 
+import static com.example.mixalis.psagmenos.R.string.tittledialogcry;
+
 /**
  * Created by mixalis on 14/11/2015.
  */
@@ -536,7 +538,7 @@ public class GameActivity extends Activity {
 
         final Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.dialogcry);
-        dialog.setTitle("Λυπάμαι χάσατε..");
+        dialog.setTitle(R.string.tittledialogcry);
         TextView text = (TextView) dialog.findViewById(R.id.text);
         text.setText("Your score:"+scoreteliko);
         dialog.findViewById(R.id.dialogButtonOK).setOnClickListener(new View.OnClickListener() {
@@ -583,9 +585,9 @@ public class GameActivity extends Activity {
 
         final Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.dilaoggelio);
-        dialog.setTitle("Tέλος..");
+        dialog.setTitle(R.string.tittledialog3);
         TextView text = (TextView) dialog.findViewById(R.id.text);
-        text.setText("Άς ξανά παίξουμε");
+        text.setText(R.string.letsplayagain);
         dialog.findViewById(R.id.dialogButtonOK).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

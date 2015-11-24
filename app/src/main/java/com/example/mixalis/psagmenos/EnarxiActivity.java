@@ -39,15 +39,21 @@ public class EnarxiActivity extends Activity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                   // Intent myIntent = new Intent(EnarxiActivity.this, GameActivity.class);
-                   // EnarxiActivity.this.startActivity(myIntent);
-                    Intent i = new Intent(getApplicationContext(), GameActivity.class);
-                   // i.putExtra("epelexes","Γεωγραφία");
+                // Intent myIntent = new Intent(EnarxiActivity.this, GameActivity.class);
+                // EnarxiActivity.this.startActivity(myIntent);
+                if (position == 4) {
+                    Intent myIntent = new Intent(EnarxiActivity.this, PaintActivity.class);
+                    EnarxiActivity.this.startActivity(myIntent);
+                }
+                if (position != 4){
+                Intent i = new Intent(getApplicationContext(), GameActivity.class);
+                // i.putExtra("epelexes","Γεωγραφία");
 
-                    i.putExtra("firstName", katigories[position]);
+                i.putExtra("firstName", katigories[position]);
                 i.putExtra("isalphabete", katigories[position].equals(EnarxiActivity.this.getString(R.string.alphabete)));
                 i.putExtra("iscolor", katigories[position].equals(EnarxiActivity.this.getString(R.string.colors)));
-                    startActivity(i);
+                startActivity(i);
+            }
         }
         });
     }
@@ -57,7 +63,8 @@ public class EnarxiActivity extends Activity {
                 EnarxiActivity.this.getString(R.string.maths),
                 EnarxiActivity.this.getString(R.string.languageCategory),
                 EnarxiActivity.this.getString(R.string.colors),
-                EnarxiActivity.this.getString(R.string.alphabete)
+                EnarxiActivity.this.getString(R.string.alphabete),
+                      EnarxiActivity.this.getString(R.string.paint)
 
         };
     }
