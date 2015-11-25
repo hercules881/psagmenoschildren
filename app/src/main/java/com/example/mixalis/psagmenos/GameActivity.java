@@ -166,9 +166,9 @@ public class GameActivity extends Activity {
                     }
                 });
 
-
             }
         }).start();
+
         //pairnoume tuxaio arithmo gia erwtisi!
 
         // answers.get(0).getIsValidAnswer(); an einai swsti i pantisi einai 1 aliws einai 0!

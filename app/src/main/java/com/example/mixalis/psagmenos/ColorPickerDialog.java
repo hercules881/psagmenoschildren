@@ -221,6 +221,6 @@ public class ColorPickerDialog extends Dialog {
         };
 
         setContentView(new ColorPickerView(getContext(), l, mInitialColor));
-        setTitle("Pick a Color");
+        setTitle(R.string.pickacolor);
     }
 }

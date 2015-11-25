@@ -25,7 +25,9 @@
     <string name="tittledialogcry">Λυπάμαι χάσατε..</string>
     <string name="tittledialog3">Τέλος</string>
     <string name="letsplayagain">Άς ξανά παίξουμε</string>
-
+    <string name="pickacolor">Διάλεξε ένα χρώμα</string>
+    <string name="color">Χρώμα</string>
+    <string name="clear">Σβήσιμο</string>
 
 
 </resources>
