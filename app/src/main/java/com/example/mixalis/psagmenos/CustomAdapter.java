@@ -13,6 +13,10 @@ import android.widget.TextView;
 
 import java.io.IOException;
 
+import static android.view.View.*;
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
+
 /**
  * Created by mixalis on 13/11/2015.
  */
@@ -34,8 +38,14 @@ class CustomAdapter extends ArrayAdapter<String> {
         LayoutInflater inflater=context.getLayoutInflater();
         final View rowView=inflater.inflate(R.layout.listviewenarxi, null, true);
         final TextView text1 = (TextView) rowView.findViewById(R.id.text);
+       // final TextView text2 = (TextView) rowView.findViewById(R.id.text1);
 
-       // rowView.setClickable(true);
+        TextView text2 = (TextView) super.getView(position, view, parent);
+
+
+        //text2.setVisibility(GONE);
+        // rowView.setClickable(true);
+
         text1.setText(itemname[position]);
         if(position == 2) {
             text1.setBackgroundResource(android.R.color.transparent);

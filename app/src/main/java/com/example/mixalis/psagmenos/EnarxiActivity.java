@@ -41,11 +41,11 @@ public class EnarxiActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // Intent myIntent = new Intent(EnarxiActivity.this, GameActivity.class);
                 // EnarxiActivity.this.startActivity(myIntent);
-                if (position == 5) {
+                if (position == 4) {
                     Intent myIntent = new Intent(EnarxiActivity.this, PaintActivity.class);
                     EnarxiActivity.this.startActivity(myIntent);
                 }
-                if (position != 5 && position !=2){
+                if (position != 4){
                 Intent i = new Intent(getApplicationContext(), GameActivity.class);
                 // i.putExtra("epelexes","Γεωγραφία");
 
@@ -62,7 +62,7 @@ public class EnarxiActivity extends Activity {
               katigories = new String[]{
                 EnarxiActivity.this.getString(R.string.maths),
                 EnarxiActivity.this.getString(R.string.languageCategory),
-                      EnarxiActivity.this.getString(R.string.forChildren),
+                      "paidia",
                 EnarxiActivity.this.getString(R.string.colors),
                 EnarxiActivity.this.getString(R.string.alphabete),
                       EnarxiActivity.this.getString(R.string.paint)
