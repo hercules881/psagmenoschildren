@@ -53,6 +53,7 @@ public class EnarxiActivity extends Activity {
                 i.putExtra("isalphabete", katigories[position].equals(EnarxiActivity.this.getString(R.string.alphabete)));
                 i.putExtra("iscolor", katigories[position].equals(EnarxiActivity.this.getString(R.string.colors)));
                 startActivity(i);
+
             }
         }
         });
