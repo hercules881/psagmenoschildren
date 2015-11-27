@@ -28,6 +28,7 @@ public class PaintActivity extends Activity implements ColorPickerDialog.OnColor
      Paint mPaint;
      Path mPath;
      Canvas mCanvas;
+    boolean hasAppeared = false;
     // private DrawingManager mDrawingManager=null;
 
 
@@ -55,7 +56,9 @@ public class PaintActivity extends Activity implements ColorPickerDialog.OnColor
     @Override
     public void colorChanged(int color) {
         mPaint.setColor(color);
+        if(!hasAppeared)
         Toast.makeText(this, R.string.selectColor , Toast.LENGTH_SHORT).show();
+        hasAppeared = true;
     }
 
     public class DrawingView extends View {
