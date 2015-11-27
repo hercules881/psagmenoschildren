@@ -30,7 +30,7 @@
     <string name="pickacolor">Pick a color..</string>
     <string name="color">Color</string>
     <string name="clear">Clear</string>
-
+    <string name="selectColor">To pick color again press setting button</string>
 
 
 </resources>

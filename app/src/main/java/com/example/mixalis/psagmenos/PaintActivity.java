@@ -15,6 +15,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Toast;
 
 
 public class PaintActivity extends Activity implements ColorPickerDialog.OnColorChangedListener{
@@ -46,7 +47,7 @@ public class PaintActivity extends Activity implements ColorPickerDialog.OnColor
         mPaint.setStrokeJoin(Paint.Join.ROUND);
         mPaint.setStrokeCap(Paint.Cap.ROUND);
         mPaint.setStrokeWidth(12);
-
+        new ColorPickerDialog(this, this, mPaint.getColor()).show();
 
 
     }
@@ -54,6 +55,7 @@ public class PaintActivity extends Activity implements ColorPickerDialog.OnColor
     @Override
     public void colorChanged(int color) {
         mPaint.setColor(color);
+        Toast.makeText(this, R.string.selectColor , Toast.LENGTH_SHORT).show();
     }
 
     public class DrawingView extends View {
