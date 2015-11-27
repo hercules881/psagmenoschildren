@@ -47,11 +47,7 @@ class CustomAdapter extends ArrayAdapter<String> {
         // rowView.setClickable(true);
 
         text1.setText(itemname[position]);
-        if(position == 2) {
-            text1.setBackgroundResource(android.R.color.transparent);
-        }
         return rowView;
-
 
     };
 
