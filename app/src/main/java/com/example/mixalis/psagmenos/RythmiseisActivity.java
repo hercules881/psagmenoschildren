@@ -28,7 +28,7 @@ public class RythmiseisActivity extends Activity {
     public static final String LANGUAGE_KEY = "lang";
     TextView languageText;
     static TextView soundText;
-
+int mousiki=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,5 +99,30 @@ public class RythmiseisActivity extends Activity {
     }
     public static void setOnChangeLanguageListener(ChangeLanguageListener changeLanguageListenerr){
         changeLanguageListener = changeLanguageListenerr;
+    }
+
+    @Override
+    protected void onResume() {
+
+        boolean isSoundEnabled;
+        isSoundEnabled = (boolean) Preferences.get(this, RythmiseisActivity.SOUNDSETTINGS, RythmiseisActivity.ISSOUNDENABLED, true);
+        if(isSoundEnabled && !MainActivity.mediaPlayer.isPlaying())
+            MainActivity.mediaPlayer.start();
+
+
+
+
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+        if (mousiki!=1 && !this.isFinishing()) {
+            MainActivity.mediaPlayer.pause();
+            // MainActivity.mediaPlayer.stop();
+
+        }
+        mousiki=0;
     }
 }
