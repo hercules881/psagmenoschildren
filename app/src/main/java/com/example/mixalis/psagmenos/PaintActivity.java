@@ -17,12 +17,14 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 
+import Misc.Preferences;
+
 
 public class PaintActivity extends Activity implements ColorPickerDialog.OnColorChangedListener{
    FingerPaintActovity.MyView mv;
    Paint   mBitmapPaint;
     Bitmap mBitmap;
-
+int mousiki=0;
     AlertDialog dialog;
     DrawingView dv ;
      Paint mPaint;
@@ -212,6 +214,27 @@ public class PaintActivity extends Activity implements ColorPickerDialog.OnColor
 
     }
 
+
+    @Override
+    protected void onResume() {
+
+        boolean isSoundEnabled;
+        isSoundEnabled = (boolean) Preferences.get(this, RythmiseisActivity.SOUNDSETTINGS, RythmiseisActivity.ISSOUNDENABLED, true);
+        if(isSoundEnabled && !MainActivity.mediaPlayer.isPlaying())
+            MainActivity.mediaPlayer.start();
+
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+        if (mousiki!=1) {
+            MainActivity.mediaPlayer.pause();
+            // mediaPlayer.release();
+        }
+        mousiki=0;
+    }
 
 }
 
