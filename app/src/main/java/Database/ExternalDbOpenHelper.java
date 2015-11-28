@@ -61,7 +61,6 @@ public class ExternalDbOpenHelper extends DatabaseHelper implements ChangeLangua
     //This piece of code will create a database if it’s not yet created
     public void createDataBase() {
         File dbFile = context.getDatabasePath(DB_NAME);
-
         boolean dbExist = dbFile.exists();
         if (!dbExist) {
             this.getReadableDatabase();
