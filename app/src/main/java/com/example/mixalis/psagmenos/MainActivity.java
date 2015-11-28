@@ -68,6 +68,12 @@ public class MainActivity extends Activity {
         boolean isSoundEnabled = (boolean) Preferences.get(this, RythmiseisActivity.SOUNDSETTINGS, RythmiseisActivity.ISSOUNDENABLED, true);
         if(isSoundEnabled)
         mediaPlayer.start();
+        mediaPlayer.setOnCompletionListener(new OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                mediaPlayer.start();
+            }
+        });
 
 
        /* try {
