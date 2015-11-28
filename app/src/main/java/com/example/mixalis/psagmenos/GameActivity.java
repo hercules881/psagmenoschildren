@@ -71,7 +71,7 @@ public class GameActivity extends Activity {
     Integer[] drawbleAnswersId = new Integer[]{R.drawable.text_cornermauro, R.drawable.text_cornermple,R.drawable.text_cornerprassino, R.drawable.text_cornerkokkino,R.drawable.text_cornerkafe, R.drawable.text_cornerkitrino, R.drawable.text_corneraspro,R.drawable.text_cornergri,R.drawable.text_cornerportokali};
     HashMap<String,Integer> mapColorsToBackground;
     Timer timer;
-
+int mousiki=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -540,7 +540,7 @@ public class GameActivity extends Activity {
         dialog.setContentView(R.layout.dialogcry);
         dialog.setTitle(R.string.tittledialogcry);
         TextView text = (TextView) dialog.findViewById(R.id.text);
-        text.setText("Your score:"+scoreteliko);
+        text.setText("Your score:" + scoreteliko);
         dialog.findViewById(R.id.dialogButtonOK).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -648,34 +648,34 @@ public class GameActivity extends Activity {
                 GameActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        randomNumer = getRandomWithExclusion(new Random(), 0 , questions.size()-1 , lastQuestionNumber);
-                        if(colorMediaPlayer!=null)
-                        colorMediaPlayer.release();
+                        randomNumer = getRandomWithExclusion(new Random(), 0, questions.size() - 1, lastQuestionNumber);
+                        if (colorMediaPlayer != null)
+                            colorMediaPlayer.release();
                         //kratame ton arithmo tis proigoumenis erwtisis gia na min ksanapesei!
-                        if(isAlphabete){
-                            String filename = String.format(currentLanguage.equals("el")?"a%d":"englisha%d",randomNumer);
-                            int id = GameActivity.this.getResources().getIdentifier(filename,"raw",GameActivity.this.getPackageName());
-                            questionMediaPlayer = MediaPlayer.create(GameActivity.this,id);
+                        if (isAlphabete) {
+                            String filename = String.format(currentLanguage.equals("el") ? "a%d" : "englisha%d", randomNumer);
+                            int id = GameActivity.this.getResources().getIdentifier(filename, "raw", GameActivity.this.getPackageName());
+                            questionMediaPlayer = MediaPlayer.create(GameActivity.this, id);
                             questionMediaPlayer.start();
 
                         }
-                        if(isColor){
-                            String filename = String.format("color%d",randomNumer);
-                            final int id = GameActivity.this.getResources().getIdentifier(filename,"drawable",GameActivity.this.getPackageName());
+                        if (isColor) {
+                            String filename = String.format("color%d", randomNumer);
+                            final int id = GameActivity.this.getResources().getIdentifier(filename, "drawable", GameActivity.this.getPackageName());
                             GameActivity.this.runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
                                     colorImage.setImageResource(id);
                                 }
                             });
-                            String filenameSound = String.format(currentLanguage.equals("el")?"colorsound%d":"colorsoundenglish%d",randomNumer);
-                            int idSound = GameActivity.this.getResources().getIdentifier(filenameSound,"raw",GameActivity.this.getPackageName());
-                            questionMediaPlayer = MediaPlayer.create(GameActivity.this,idSound);
+                            String filenameSound = String.format(currentLanguage.equals("el") ? "colorsound%d" : "colorsoundenglish%d", randomNumer);
+                            int idSound = GameActivity.this.getResources().getIdentifier(filenameSound, "raw", GameActivity.this.getPackageName());
+                            questionMediaPlayer = MediaPlayer.create(GameActivity.this, idSound);
                             questionMediaPlayer.start();
                         }
                         lastQuestionNumber.add(randomNumer);
                         erwtisi.setText(questions.get(randomNumer).getText());
-                        ArrayList<Answer>answers=(ArrayList<Answer>) ExternalDbOpenHelper.sharedInstance().getPossibleAnswersForQuestion(questions.get(randomNumer));//apantiseis
+                        ArrayList<Answer> answers = (ArrayList<Answer>) ExternalDbOpenHelper.sharedInstance().getPossibleAnswersForQuestion(questions.get(randomNumer));//apantiseis
                         answers.get(0);
                         apantisi1.setText(answers.get(0).getText());
                         apantisi2.setText(answers.get(1).getText());
@@ -685,7 +685,7 @@ public class GameActivity extends Activity {
                         apantisi2.setBackgroundResource(R.drawable.text_corner);
                         apantisi3.setBackgroundResource(R.drawable.text_corner);
                         apantisi4.setBackgroundResource(R.drawable.text_corner);
-                        if(isColor){
+                        if (isColor) {
                             apantisi1.setBackgroundResource(mapColorsToBackground.get(apantisi1.getText().toString()));
                             apantisi2.setBackgroundResource(mapColorsToBackground.get(apantisi2.getText().toString()));
                             apantisi3.setBackgroundResource(mapColorsToBackground.get(apantisi3.getText().toString()));
@@ -703,7 +703,7 @@ public class GameActivity extends Activity {
                 });
 
             }
-        }, isColor || isAlphabete?2000:1000);
+        }, isColor || isAlphabete ? 2000 : 1000);
     }
 
     @Override
@@ -721,6 +721,34 @@ public class GameActivity extends Activity {
             colorMediaPlayer.release();
         }
         super.onDestroy();
+    }
+
+
+    @Override
+    protected void onResume() {
+
+        boolean isSoundEnabled;
+        isSoundEnabled = (boolean) Preferences.get(this, RythmiseisActivity.SOUNDSETTINGS, RythmiseisActivity.ISSOUNDENABLED, true);
+        if(isSoundEnabled && !MainActivity.mediaPlayer.isPlaying())
+            MainActivity.mediaPlayer.start();
+
+
+
+
+        super.onResume();
+    }
+
+
+
+   @Override
+    protected void onPause(){
+        super.onPause();
+        if (mousiki!=1 && !this.isFinishing()) {
+            MainActivity.mediaPlayer.pause();
+           // MainActivity.mediaPlayer.stop();
+
+        }
+        mousiki=0;
     }
 }
 

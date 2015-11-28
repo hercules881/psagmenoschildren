@@ -34,8 +34,8 @@ public class MainActivity extends Activity {
     public static MediaPlayer mediaPlayer;
     ProgressBar progressBarq;
     public static final String LANGUAGE_KEY = "lang";
-
-
+    boolean isSoundEnabled;
+int mousiki=0;
 
 
     @Override
@@ -65,7 +65,7 @@ public class MainActivity extends Activity {
 
 
         mediaPlayer = create(this, raw.back1);
-        boolean isSoundEnabled = (boolean) Preferences.get(this, RythmiseisActivity.SOUNDSETTINGS, RythmiseisActivity.ISSOUNDENABLED, true);
+         isSoundEnabled = (boolean) Preferences.get(this, RythmiseisActivity.SOUNDSETTINGS, RythmiseisActivity.ISSOUNDENABLED, true);
         if(isSoundEnabled)
         mediaPlayer.start();
         mediaPlayer.setOnCompletionListener(new OnCompletionListener() {
@@ -87,7 +87,7 @@ public class MainActivity extends Activity {
         playAndLearn = (TextView) findViewById(R.id.title);
         enarxi.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
-
+                    mousiki=1;
 
                 Intent myIntent = new Intent(MainActivity.this, EnarxiActivity.class);
                 MainActivity.this.startActivity(myIntent);
@@ -103,6 +103,7 @@ public class MainActivity extends Activity {
         findViewById(R.id.title2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mousiki=1;
                 Intent myIntent = new Intent(MainActivity.this, RythmiseisActivity.class);
                 MainActivity.this.startActivity(myIntent);
             }
@@ -146,6 +147,26 @@ public class MainActivity extends Activity {
         settings.setText(R.string.settings);
         playAndLearn.setText(R.string.playlearn);
         new ExternalDbOpenHelper(this);
+
+        isSoundEnabled = (boolean) Preferences.get(this, RythmiseisActivity.SOUNDSETTINGS, RythmiseisActivity.ISSOUNDENABLED, true);
+        if(isSoundEnabled && !mediaPlayer.isPlaying())
+            mediaPlayer.start();
+
+
+
+
         super.onResume();
     }
+
+@Override
+    protected void onPause(){
+        super.onPause();
+if (mousiki!=1) {
+    mediaPlayer.pause();
+   // mediaPlayer.release();
+}
+        mousiki=0;
+    }
+
+
 }

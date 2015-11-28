@@ -13,6 +13,9 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import Database.ExternalDbOpenHelper;
+import Misc.Preferences;
+
 import static android.media.MediaPlayer.create;
 
 
@@ -22,7 +25,7 @@ import static android.media.MediaPlayer.create;
 public class EnarxiActivity extends Activity {
     ListView listView;
     String[] katigories;
-
+int mousiki=0;
     private ImageButton math;
     private ImageButton alphavita;
     private ImageButton glwssa;
@@ -37,6 +40,9 @@ public class EnarxiActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.enarxi);
         initCats();
+
+
+    // if  ( MainActivity.mediaPlayer.isPlaying())
 
 
         /*CustomAdapter adapter = new CustomAdapter(this, katigories);
@@ -71,7 +77,7 @@ public class EnarxiActivity extends Activity {
         math.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
 
-
+mousiki=1;
                 Intent i = new Intent(getApplicationContext(), GameActivity.class);
                 i.putExtra("firstName", katigories[0]);
                 i.putExtra("isalphabete", katigories[0].equals(EnarxiActivity.this.getString(R.string.alphabete)));
@@ -86,6 +92,7 @@ public class EnarxiActivity extends Activity {
         glwssa.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
 
+                mousiki=1;
 
                 Intent i = new Intent(getApplicationContext(), GameActivity.class);
                 i.putExtra("firstName", katigories[1]);
@@ -101,6 +108,7 @@ public class EnarxiActivity extends Activity {
         xrwmata = (ImageButton) findViewById(R.id.xrwmata);
         xrwmata.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
+                mousiki=1;
 
 
                 Intent i = new Intent(getApplicationContext(), GameActivity.class);
@@ -117,6 +125,7 @@ public class EnarxiActivity extends Activity {
         alphavita = (ImageButton) findViewById(R.id.alphavita);
         alphavita.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
+                mousiki=1;
 
 
                 Intent i = new Intent(getApplicationContext(), GameActivity.class);
@@ -133,6 +142,7 @@ public class EnarxiActivity extends Activity {
         zwgrafiki = (ImageButton) findViewById(R.id.zwgrafiki);
         zwgrafiki.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
+                mousiki=1;
 
 
                 Intent myIntent = new Intent(EnarxiActivity.this, PaintActivity.class);
@@ -159,5 +169,34 @@ public class EnarxiActivity extends Activity {
 
         };
     }
+
+
+    @Override
+    protected void onResume() {
+
+        boolean isSoundEnabled;
+        isSoundEnabled = (boolean) Preferences.get(this, RythmiseisActivity.SOUNDSETTINGS, RythmiseisActivity.ISSOUNDENABLED, true);
+        if(isSoundEnabled && !MainActivity.mediaPlayer.isPlaying())
+            MainActivity.mediaPlayer.start();
+
+
+
+
+        super.onResume();
+    }
+
+
+
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+        if (mousiki!=1) {
+            MainActivity.mediaPlayer.pause();
+            // mediaPlayer.release();
+        }
+        mousiki=0;
+    }
+
 
 }
