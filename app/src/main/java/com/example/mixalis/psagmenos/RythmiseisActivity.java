@@ -34,7 +34,7 @@ int mousiki=0;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SharedPreferences preferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
-        String currentLanguage = preferences.getString(LANGUAGE_KEY,"el");
+        String currentLanguage = preferences.getString(LANGUAGE_KEY,"en");
 
         Resources res = RythmiseisActivity.this.getResources();
         // Change locale settings in the app.

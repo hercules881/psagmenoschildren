@@ -106,7 +106,7 @@ int mousiki=0;
         String lName = intent.getStringExtra("lastName");
         epelexes=fName;
         SharedPreferences preferences = this.getSharedPreferences(this.getPackageName(), Context.MODE_PRIVATE);
-        currentLanguage = preferences.getString(MainActivity.LANGUAGE_KEY, "el");
+        currentLanguage = preferences.getString(MainActivity.LANGUAGE_KEY, "en");
         highScore = (int) Preferences.get(this, GAMEACTIVITY, HIGHSCORE, 0);
         highScoreText.setText(String.valueOf(highScore));
         final ProgressDialog progressDialog = new ProgressDialog(this);
@@ -720,7 +720,7 @@ int mousiki=0;
         if(colorMediaPlayer != null){
             colorMediaPlayer.release();
         }
-        super.onDestroy();
+        super.onDestroy() ;
     }
 
 
