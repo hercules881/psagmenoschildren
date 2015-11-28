@@ -732,9 +732,6 @@ int mousiki=0;
         if(isSoundEnabled && !MainActivity.mediaPlayer.isPlaying())
             MainActivity.mediaPlayer.start();
 
-
-
-
         super.onResume();
     }
 
