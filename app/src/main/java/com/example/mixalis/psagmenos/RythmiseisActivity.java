@@ -51,7 +51,6 @@ public class RythmiseisActivity extends Activity {
         languageSwitch.setChecked(currentLanguage.equals("el"));
         languageSwitch.setTextOn("");
         languageSwitch.setTextOff("");
-        ExternalDbOpenHelper externalDbOpenHelper = new ExternalDbOpenHelper(this);
         languageText = (TextView) findViewById(R.id.language);
         languageText.setText(currentLanguage.equals("el")?"Ελληνικά":"English");
         soundSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

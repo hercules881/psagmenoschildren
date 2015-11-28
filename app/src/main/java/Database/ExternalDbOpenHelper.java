@@ -33,6 +33,7 @@ public class ExternalDbOpenHelper extends DatabaseHelper implements ChangeLangua
     public static String DB_NAME = "psagmenossschildrendb.db";
     public SQLiteDatabase database;
     public final Context context;
+    private static ExternalDbOpenHelper _instance;
 
     public SQLiteDatabase getDb() {
         return database;
@@ -41,6 +42,7 @@ public class ExternalDbOpenHelper extends DatabaseHelper implements ChangeLangua
     public ExternalDbOpenHelper(Context context) {
         super(context);
         this.context = context;
+        _instance = this;
         SharedPreferences preferences = context.getSharedPreferences(context.getPackageName(), Context.MODE_PRIVATE);
         String currentLanguage = preferences.getString(MainActivity.LANGUAGE_KEY,"el");
         ExternalDbOpenHelper.DB_NAME =  currentLanguage.equals("el")?"psagmenossschildrendb.db":"psagmenossschildrenenglishdb.db";
@@ -264,5 +266,14 @@ public class ExternalDbOpenHelper extends DatabaseHelper implements ChangeLangua
         DB_NAME = "psagmenossschildrendb.db";
         else
            DB_NAME = "psagmenossschildrenenglishdb.db";
+    }
+
+
+    public static ExternalDbOpenHelper sharedInstance()
+    {
+
+
+        return _instance;
+
     }
 }

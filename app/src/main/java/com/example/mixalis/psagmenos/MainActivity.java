@@ -69,12 +69,12 @@ public class MainActivity extends Activity {
         if(isSoundEnabled)
         mediaPlayer.start();
 
-        ExternalDbOpenHelper dbHelper = new ExternalDbOpenHelper(this);
-        try {
+
+       /* try {
             dbHelper.openDataBase();
         } catch (SQLException e) {
             e.printStackTrace();
-        }
+        }*/
 
         enarxi = (TextView) findViewById(id.enarxi);
         settings = (TextView) findViewById(R.id.title2);
@@ -139,6 +139,7 @@ public class MainActivity extends Activity {
         enarxi.setText(R.string.start);
         settings.setText(R.string.settings);
         playAndLearn.setText(R.string.playlearn);
+        new ExternalDbOpenHelper(this);
         super.onResume();
     }
 }

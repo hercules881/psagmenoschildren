@@ -53,7 +53,7 @@ public class GameActivity extends Activity {
     int randomNumer;
     Thread thread;
     ArrayList<Question> questions;
-    ExternalDbOpenHelper dbHelper;
+
     TextView erwtisi;
     TextView scoreview;
     int questionsCounter = 0;
@@ -112,11 +112,11 @@ public class GameActivity extends Activity {
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.show();
 
-        dbHelper = new ExternalDbOpenHelper(this);
+       // ExternalDbOpenHelper.sharedInstance() = new ExternalDbOpenHelper(this);
         new Thread(new Runnable() {
             @Override
             public void run() {
-                questions= (ArrayList<Question>) dbHelper.getQuestionForCategory(epelexes);   //erwtiseis
+                questions= (ArrayList<Question>) ExternalDbOpenHelper.sharedInstance().getQuestionForCategory(epelexes);   //erwtiseis
                 randomNumer = getRandomNumer(questions.size()-1);
                 //kratame ton arithmo tis proigoumenis erwtisis gia na min ksanapesei!
                 if(isAlphabete){
@@ -150,7 +150,7 @@ public class GameActivity extends Activity {
                     public void run() {
                         progressDialog.dismiss();
                         erwtisi.setText(questions.get(randomNumer).getText());
-                        ArrayList<Answer> answers = (ArrayList<Answer>) dbHelper.getPossibleAnswersForQuestion(questions.get(randomNumer));//apantiseis
+                        ArrayList<Answer> answers = (ArrayList<Answer>) ExternalDbOpenHelper.sharedInstance().getPossibleAnswersForQuestion(questions.get(randomNumer));//apantiseis
                         answers.get(0);
                         apantisi1.setText(answers.get(0).getText());
                         apantisi2.setText(answers.get(1).getText());
@@ -228,7 +228,7 @@ public class GameActivity extends Activity {
                                 //kratame ton arithmo tis proigoumenis erwtisis gia na min ksanapesei!
                                 lastQuestionNumber.add(randomNumer);
                                 erwtisi.setText(questions.get(randomNumer).getText());
-                                ArrayList<Answer>answers=(ArrayList<Answer>) dbHelper.getPossibleAnswersForQuestion(questions.get(randomNumer));//apantiseis
+                                ArrayList<Answer>answers=(ArrayList<Answer>) ExternalDbOpenHelper.sharedInstance().getPossibleAnswersForQuestion(questions.get(randomNumer));//apantiseis
                                 answers.get(0);
                                 apantisi1.setText(answers.get(0).getText());
                                 apantisi2.setText(answers.get(1).getText());
@@ -273,7 +273,7 @@ public class GameActivity extends Activity {
 
                 boolean isCorrectAnswer = false;
                 Question question = (questions.get(randomNumer));
-                ArrayList<Answer> answers = (ArrayList<Answer>) dbHelper.getPossibleAnswersForQuestion(question);//apantiseis
+                ArrayList<Answer> answers = (ArrayList<Answer>) ExternalDbOpenHelper.sharedInstance().getPossibleAnswersForQuestion(question);//apantiseis
                 for (Answer answer : answers) {
                     if(!isColor) {
                         if (answer.getIsValidAnswer() == 1 && (apantisi1.getText().toString().equals(answer.getText()))) {
@@ -339,7 +339,7 @@ public class GameActivity extends Activity {
 
                 boolean isCorrectAnswer = false;
                 Question question = (questions.get(randomNumer));
-                ArrayList<Answer>answers=(ArrayList<Answer>) dbHelper.getPossibleAnswersForQuestion(question);//apantiseis
+                ArrayList<Answer>answers=(ArrayList<Answer>) ExternalDbOpenHelper.sharedInstance().getPossibleAnswersForQuestion(question);//apantiseis
                 for (Answer answer :answers){
                     if(!isColor) {
                         if (answer.getIsValidAnswer() == 1 && (apantisi2.getText().toString().equals(answer.getText()))) {
@@ -404,7 +404,7 @@ public class GameActivity extends Activity {
 
                 boolean isCorrectAnswer = false;
                 Question question = (questions.get(randomNumer));
-                ArrayList<Answer>answers=(ArrayList<Answer>) dbHelper.getPossibleAnswersForQuestion(question);//apantiseis
+                ArrayList<Answer>answers=(ArrayList<Answer>) ExternalDbOpenHelper.sharedInstance().getPossibleAnswersForQuestion(question);//apantiseis
                 for (Answer answer :answers){
                     if(!isColor) {
                         if (answer.getIsValidAnswer() == 1 && (apantisi3.getText().toString().equals(answer.getText()))) {
@@ -467,7 +467,7 @@ public class GameActivity extends Activity {
 
                 boolean isCorrectAnswer = false;
                 Question question = (questions.get(randomNumer));
-                ArrayList<Answer>answers=(ArrayList<Answer>) dbHelper.getPossibleAnswersForQuestion(question);//apantiseis
+                ArrayList<Answer>answers=(ArrayList<Answer>) ExternalDbOpenHelper.sharedInstance().getPossibleAnswersForQuestion(question);//apantiseis
                 for (Answer answer :answers){
                     if(!isColor) {
                         if (answer.getIsValidAnswer() == 1 && (apantisi4.getText().toString().equals(answer.getText()))) {
@@ -675,7 +675,7 @@ public class GameActivity extends Activity {
                         }
                         lastQuestionNumber.add(randomNumer);
                         erwtisi.setText(questions.get(randomNumer).getText());
-                        ArrayList<Answer>answers=(ArrayList<Answer>) dbHelper.getPossibleAnswersForQuestion(questions.get(randomNumer));//apantiseis
+                        ArrayList<Answer>answers=(ArrayList<Answer>) ExternalDbOpenHelper.sharedInstance().getPossibleAnswersForQuestion(questions.get(randomNumer));//apantiseis
                         answers.get(0);
                         apantisi1.setText(answers.get(0).getText());
                         apantisi2.setText(answers.get(1).getText());
