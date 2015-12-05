@@ -44,10 +44,12 @@ public class GameActivity extends Activity {
     private ProgressBar progressBar;
     ProgressBar bar;
     String epelexes;
+
     private Button apantisi1;
     private Button apantisi2;
     private Button apantisi3;
     private Button apantisi4;
+
     private int lifes = 3;
     ArrayList<Integer> lastQuestionNumber = new ArrayList<>();
     int randomNumer;

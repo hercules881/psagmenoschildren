@@ -152,9 +152,6 @@ int mousiki=0;
         if(isSoundEnabled && !mediaPlayer.isPlaying())
             mediaPlayer.start();
 
-
-
-
         super.onResume();
     }
 

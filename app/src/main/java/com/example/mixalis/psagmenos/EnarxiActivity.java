@@ -83,6 +83,7 @@ mousiki=1;
                 i.putExtra("isalphabete", katigories[0].equals(EnarxiActivity.this.getString(R.string.alphabete)));
                 i.putExtra("iscolor", katigories[0].equals(EnarxiActivity.this.getString(R.string.colors)));
                 startActivity(i);
+
             }
         });
 
