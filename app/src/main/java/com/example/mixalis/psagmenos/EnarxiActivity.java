@@ -31,6 +31,7 @@ int mousiki=0;
     private ImageButton glwssa;
     private ImageButton xrwmata;
     private ImageButton zwgrafiki;
+    private ImageButton shapes;
 
     public EnarxiActivity() {
     }
@@ -154,6 +155,19 @@ mousiki=1;
 
 
 
+
+        shapes = (ImageButton) findViewById(R.id.shapes);
+        shapes.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                mousiki=1;
+                //Intent i = new Intent(getApplicationContext(), GameActivity.class);
+                // i.putExtra("epelexes","Γεωγραφία");
+                //startActivity(i);
+                Intent myIntent = new Intent(EnarxiActivity.this, ShapesActivity.class);
+                EnarxiActivity.this.startActivity(myIntent);
+            }
+        });
+
 }
 
 
@@ -166,7 +180,8 @@ mousiki=1;
                 EnarxiActivity.this.getString(R.string.languageCategory),
                 EnarxiActivity.this.getString(R.string.colors),
                 EnarxiActivity.this.getString(R.string.alphabete),
-                      EnarxiActivity.this.getString(R.string.paint)
+                      EnarxiActivity.this.getString(R.string.paint),
+                      EnarxiActivity.this.getString(R.string.shapes)
 
         };
     }

@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fonto6"
+    >
+
+
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Επέλεξες.."
+        android:gravity="center_horizontal"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        />
+
+
+
+    <View
+        android:id="@+id/separator"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/title2"
+        android:layout_height="1dip"
+        android:background="#151243" />
+
+
+
+
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/title4"
+        android:layout_marginTop="1dp"
+        android:gravity="center"
+
+        >
+
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/linear3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:visibility="gone"
+            android:layout_below="@id/title"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            >
+
+            <ImageView
+                android:id="@+id/zwi1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/zwi2"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="7dp"
+                android:layout_below="@id/title"   />
+
+            <ImageView
+                android:id="@+id/zwi2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/zwi2"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="7dp"
+                android:layout_below="@id/title"   />
+
+            <ImageView
+                android:id="@+id/zwi3"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/zwi2"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="7dp"
+                android:layout_below="@id/title"   />
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/imageshapesCategory"
+        android:layout_width="210dp"
+        android:layout_height="100dp"
+        android:src="@drawable/trigwno"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@id/linear3"
+        android:layout_centerHorizontal="true"
+        android:padding="0dp"
+
+        />
+
+
+    <ProgressBar
+        android:id="@+id/progressbar1"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="10dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:visibility="gone"
+        android:layout_marginTop="10dp"
+        android:indeterminate="false"
+        android:max="80"
+        android:minHeight="50dp"
+        android:minWidth="200dp"
+        android:progress="1" />
+
+    <TextView
+        android:id="@+id/erwtisi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="erwtisi"
+        android:gravity="center_horizontal"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_below="@id/progressbar1"
+        android:layout_marginTop="0dp"
+        />
+
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/linear1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_below="@id/erwtisi"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        >
+
+
+        <ImageButton
+            android:id="@+id/apantisi1"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_weight="50"
+            android:textAllCaps="false"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/text_corner"
+            android:soundEffectsEnabled="true"
+            android:padding="8dp"
+            android:scaleType="fitCenter"
+            android:textSize="18dp"
+
+
+            />
+
+
+
+
+
+        <ImageButton
+            android:id="@+id/apantisi2"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_weight="50"
+            android:layout_marginLeft="10dp"
+            android:textAllCaps="false"
+            android:background="@drawable/text_corner"
+            android:soundEffectsEnabled="true"
+            android:textStyle="italic"
+            android:padding="7dp"
+            android:scaleType="fitCenter"
+            android:textSize="18dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/linear2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_below="@id/linear1"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        >
+
+
+        <ImageButton
+            android:id="@+id/apantisi3"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_weight="50"
+            android:textAllCaps="false"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/text_corner"
+            android:soundEffectsEnabled="true"
+            android:padding="8dp"
+            android:scaleType="fitCenter"
+            android:textSize="18dp"
+
+            />
+
+
+
+
+
+        <ImageButton
+            android:id="@+id/apantisi4"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_weight="50"
+            android:layout_marginLeft="10dp"
+            android:textAllCaps="false"
+            android:background="@drawable/text_corner"
+            android:soundEffectsEnabled="true"
+            android:textStyle="italic"
+            android:padding="7dp"
+            android:scaleType="fitCenter"
+            android:textSize="18dp"
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/linear4"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_below="@id/linear2"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        >
+
+
+
+        <TextView
+            android:id="@+id/giascore"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:text="Score:"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="0dp"
+            />
+
+        <TextView
+            android:id="@+id/score"
+            android:layout_width="45dp"
+            android:layout_height="65dp"
+            android:text="0"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="0dp"
+            />
+    </LinearLayout>
+
+
+
+
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/linear5"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_below="@id/linear4"
+        android:layout_marginTop="0dp"
+        android:gravity="center"
+        >
+
+
+
+        <TextView
+            android:id="@+id/giahighscore"
+            android:layout_width="120dp"
+            android:layout_height="65dp"
+            android:text="High score:"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="0dp"
+            />
+
+        <TextView
+            android:id="@+id/highscore"
+            android:layout_width="63dp"
+            android:layout_height="65dp"
+            android:text="0"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="0dp"
+
+            />
+    </LinearLayout>
+
+</LinearLayout>
