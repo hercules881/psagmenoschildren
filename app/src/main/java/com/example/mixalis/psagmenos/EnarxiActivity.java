@@ -160,11 +160,10 @@ mousiki=1;
         shapes.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 mousiki=1;
-                //Intent i = new Intent(getApplicationContext(), GameActivity.class);
-                // i.putExtra("epelexes","Γεωγραφία");
-                //startActivity(i);
-                Intent myIntent = new Intent(EnarxiActivity.this, ShapesActivity.class);
-                EnarxiActivity.this.startActivity(myIntent);
+                String epelexes =EnarxiActivity.this.getString(R.string.shapes);
+                Intent i = new Intent(EnarxiActivity.this, ShapesActivity.class);
+                i.putExtra("epelexes", epelexes);
+                startActivity(i);
             }
         });
 

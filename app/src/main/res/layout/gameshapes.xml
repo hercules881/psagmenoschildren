@@ -33,68 +33,6 @@
 
 
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/linear"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_below="@id/title4"
-        android:layout_marginTop="1dp"
-        android:gravity="center"
-
-        >
-
-
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/linear3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:visibility="gone"
-            android:layout_below="@id/title"
-            android:layout_marginTop="5dp"
-            android:gravity="center"
-            >
-
-            <ImageView
-                android:id="@+id/zwi1"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/zwi2"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="7dp"
-                android:layout_below="@id/title"   />
-
-            <ImageView
-                android:id="@+id/zwi2"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/zwi2"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="7dp"
-                android:layout_below="@id/title"   />
-
-            <ImageView
-                android:id="@+id/zwi3"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/zwi2"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="7dp"
-                android:layout_below="@id/title"   />
-
-        </LinearLayout>
-
-
-
-
-
-
-
-
-    </LinearLayout>
 
 
     <ImageView
@@ -111,20 +49,7 @@
         />
 
 
-    <ProgressBar
-        android:id="@+id/progressbar1"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="10dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:visibility="gone"
-        android:layout_marginTop="10dp"
-        android:indeterminate="false"
-        android:max="80"
-        android:minHeight="50dp"
-        android:minWidth="200dp"
-        android:progress="1" />
+
 
     <TextView
         android:id="@+id/erwtisi"
@@ -135,7 +60,7 @@
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:layout_below="@id/progressbar1"
+        android:layout_below="@id/imageshapesCategory"
         android:layout_marginTop="0dp"
         />
 
@@ -189,6 +114,8 @@
             android:textSize="18dp"
             />
     </LinearLayout>
+
+
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/linear2"
@@ -250,6 +177,8 @@
         android:layout_below="@id/linear2"
         android:layout_marginTop="20dp"
         android:gravity="center"
+        android:visibility="gone"
+
         >
 
 
@@ -264,6 +193,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_marginTop="0dp"
+
             />
 
         <TextView
@@ -276,6 +206,8 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_marginTop="0dp"
+
+
             />
     </LinearLayout>
 
@@ -294,6 +226,8 @@
         android:layout_below="@id/linear4"
         android:layout_marginTop="0dp"
         android:gravity="center"
+        android:visibility="gone"
+
         >
 
 
@@ -308,6 +242,8 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_marginTop="0dp"
+
+
             />
 
         <TextView
@@ -320,6 +256,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_marginTop="0dp"
+
 
             />
     </LinearLayout>
