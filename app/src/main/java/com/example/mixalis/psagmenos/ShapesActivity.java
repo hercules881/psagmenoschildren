@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -77,7 +78,7 @@ int mousiki=0;
         imageshape = (ImageView) findViewById(R.id.imageshapesCategory);
 
         SharedPreferences preferences = this.getSharedPreferences(this.getPackageName(), Context.MODE_PRIVATE);
-        currentLanguage = preferences.getString(MainActivity.LANGUAGE_KEY, "en");
+        currentLanguage = preferences.getString(MainActivity.LANGUAGE_KEY, Locale.getDefault().getLanguage().startsWith("el")?"el": "en");
 
         createHashMap();
 

@@ -44,7 +44,7 @@ public class ExternalDbOpenHelper extends DatabaseHelper implements ChangeLangua
         this.context = context;
         _instance = this;
         SharedPreferences preferences = context.getSharedPreferences(context.getPackageName(), Context.MODE_PRIVATE);
-        String currentLanguage = preferences.getString(MainActivity.LANGUAGE_KEY,"en");
+        String currentLanguage = preferences.getString(MainActivity.LANGUAGE_KEY,Locale.getDefault().getLanguage().startsWith("el")?"el": "en");
         ExternalDbOpenHelper.DB_NAME =  currentLanguage.equals("el")?"psagmenossschildrendb.db":"psagmenossschildrenenglishdb.db";
 
         //Write a full path to the databases of your application
