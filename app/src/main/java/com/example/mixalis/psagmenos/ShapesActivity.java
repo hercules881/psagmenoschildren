@@ -115,8 +115,8 @@ int mousiki=0;
                         ArrayList<Answer> answers = (ArrayList<Answer>) ExternalDbOpenHelper.sharedInstance().getPossibleAnswersForQuestion(questions.get(randomNumer));//apantiseis
                         answers.get(0);
 
-                        ena = answers.get(0).getText().toString();
-                        dio = answers.get(1).getText().toString();
+                        ena = answers.get(0).getText();
+                        dio = answers.get(1).getText();
                         treia = answers.get(2).getText();
                         tessera = answers.get(3).getText();
 
@@ -443,8 +443,8 @@ int mousiki=0;
                         apantisi4.setBackgroundResource(R.drawable.text_corner);
 
 
-                        ena = answers.get(0).getText().toString();
-                        dio = answers.get(1).getText().toString();
+                        ena = answers.get(0).getText();
+                        dio = answers.get(1).getText();
                         treia = answers.get(2).getText();
                         tessera = answers.get(3).getText();
 
@@ -488,10 +488,10 @@ int mousiki=0;
                         if (tessera.equals("Λουλούδι") || tessera.equals("Flower")) apantisi4.setImageResource(R.drawable.shapes7);
                         if (tessera.equals("Οβάλ") || tessera.equals("Oval")) apantisi4.setImageResource(R.drawable.shapes8);
 
-                        ena = answers.get(0).getText().toString();
+                       /* ena = answers.get(0).getText().toString();
                         dio = answers.get(1).getText().toString();
                         treia = answers.get(2).getText();
-                        tessera = answers.get(3).getText();
+                        tessera = answers.get(3).getText();*/
 
                         apantisi1.setEnabled(true);
                         apantisi2.setEnabled(true);
