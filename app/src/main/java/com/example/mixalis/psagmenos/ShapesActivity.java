@@ -130,7 +130,7 @@ int mousiki=0;
                             apantisi1.setImageResource(R.drawable.shapes3);
                         if (ena.equals("Κύλινδρος") || ena.equals("Cylinder"))
                             apantisi1.setImageResource(R.drawable.shapes4);
-                        if (ena.equals("Κύκλος") || ena.equals("Cycle"))
+                        if (ena.equals("Κύκλος") || ena.equals("Circle"))
                             apantisi1.setImageResource(R.drawable.shapes5);
                         if (ena.equals("Καρδιά") || ena.equals("Heart"))
                             apantisi1.setImageResource(R.drawable.shapes6);
@@ -149,7 +149,7 @@ int mousiki=0;
                             apantisi2.setImageResource(R.drawable.shapes3);
                         if (dio.equals("Κύλινδρος") || dio.equals("Cylinder"))
                             apantisi2.setImageResource(R.drawable.shapes4);
-                        if (dio.equals("Κύκλος") || dio.equals("Cycle"))
+                        if (dio.equals("Κύκλος") || dio.equals("Circle"))
                             apantisi2.setImageResource(R.drawable.shapes5);
                         if (dio.equals("Καρδιά") || dio.equals("Heart"))
                             apantisi2.setImageResource(R.drawable.shapes6);
@@ -168,7 +168,7 @@ int mousiki=0;
                             apantisi3.setImageResource(R.drawable.shapes3);
                         if (treia.equals("Κύλινδρος") || treia.equals("Cylinder"))
                             apantisi3.setImageResource(R.drawable.shapes4);
-                        if (treia.equals("Κύκλος") || treia.equals("Cycle"))
+                        if (treia.equals("Κύκλος") || treia.equals("Circle"))
                             apantisi3.setImageResource(R.drawable.shapes5);
                         if (treia.equals("Καρδιά") || treia.equals("Heart"))
                             apantisi3.setImageResource(R.drawable.shapes6);
@@ -187,7 +187,7 @@ int mousiki=0;
                             apantisi4.setImageResource(R.drawable.shapes3);
                         if (tessera.equals("Κύλινδρος") || tessera.equals("Cylinder"))
                             apantisi4.setImageResource(R.drawable.shapes4);
-                        if (tessera.equals("Κύκλος") || tessera.equals("Cycle"))
+                        if (tessera.equals("Κύκλος") || tessera.equals("Circle"))
                             apantisi4.setImageResource(R.drawable.shapes5);
                         if (tessera.equals("Καρδιά") || tessera.equals("Heart"))
                             apantisi4.setImageResource(R.drawable.shapes6);
@@ -453,7 +453,7 @@ int mousiki=0;
                         if (ena.equals("Ορθογώνιο") || ena.equals("Rectangular")) apantisi1.setImageResource(R.drawable.shapes2);
                         if (ena.equals("Τετράγωνο") || ena.equals("Square")) apantisi1.setImageResource(R.drawable.shapes3);
                         if (ena.equals("Κύλινδρος") || ena.equals("Cylinder")) apantisi1.setImageResource(R.drawable.shapes4);
-                        if (ena.equals("Κύκλος") || ena.equals("Cycle")) apantisi1.setImageResource(R.drawable.shapes5);
+                        if (ena.equals("Κύκλος") || ena.equals("Circle")) apantisi1.setImageResource(R.drawable.shapes5);
                         if (ena.equals("Καρδιά") || ena.equals("Heart")) apantisi1.setImageResource(R.drawable.shapes6);
                         if (ena.equals("Λουλούδι") || ena.equals("Flower")) apantisi1.setImageResource(R.drawable.shapes7);
                         if (ena.equals("Οβάλ") || ena.equals("Oval")) apantisi1.setImageResource(R.drawable.shapes8);
@@ -463,7 +463,7 @@ int mousiki=0;
                         if (dio.equals("Ορθογώνιο") || dio.equals("Rectangular")) apantisi2.setImageResource(R.drawable.shapes2);
                         if (dio.equals("Τετράγωνο") || dio.equals("Square")) apantisi2.setImageResource(R.drawable.shapes3);
                         if (dio.equals("Κύλινδρος") || dio.equals("Cylinder")) apantisi2.setImageResource(R.drawable.shapes4);
-                        if (dio.equals("Κύκλος") || dio.equals("Cycle")) apantisi2.setImageResource(R.drawable.shapes5);
+                        if (dio.equals("Κύκλος") || dio.equals("Circle")) apantisi2.setImageResource(R.drawable.shapes5);
                         if (dio.equals("Καρδιά") || dio.equals("Heart")) apantisi2.setImageResource(R.drawable.shapes6);
                         if (dio.equals("Λουλούδι") || dio.equals("Flower")) apantisi2.setImageResource(R.drawable.shapes7);
                         if (dio.equals("Οβάλ") || dio.equals("Oval")) apantisi2.setImageResource(R.drawable.shapes8);
@@ -473,7 +473,7 @@ int mousiki=0;
                         if (treia.equals("Ορθογώνιο") || treia.equals("Rectangular")) apantisi3.setImageResource(R.drawable.shapes2);
                         if (treia.equals("Τετράγωνο") || treia.equals("Square")) apantisi3.setImageResource(R.drawable.shapes3);
                         if (treia.equals("Κύλινδρος") || treia.equals("Cylinder")) apantisi3.setImageResource(R.drawable.shapes4);
-                        if (treia.equals("Κύκλος") || treia.equals("Cycle")) apantisi3.setImageResource(R.drawable.shapes5);
+                        if (treia.equals("Κύκλος") || treia.equals("Circle")) apantisi3.setImageResource(R.drawable.shapes5);
                         if (treia.equals("Καρδιά") || treia.equals("Heart")) apantisi3.setImageResource(R.drawable.shapes6);
                         if (treia.equals("Λουλούδι") || treia.equals("Flower")) apantisi3.setImageResource(R.drawable.shapes7);
                         if (treia.equals("Οβάλ") || treia.equals("Oval")) apantisi3.setImageResource(R.drawable.shapes8);
@@ -483,7 +483,7 @@ int mousiki=0;
                         if (tessera.equals("Ορθογώνιο") || tessera.equals("Rectangular")) apantisi4.setImageResource(R.drawable.shapes2);
                         if (tessera.equals("Τετράγωνο") || tessera.equals("Square")) apantisi4.setImageResource(R.drawable.shapes3);
                         if (tessera.equals("Κύλινδρος") || tessera.equals("Cylinder")) apantisi4.setImageResource(R.drawable.shapes4);
-                        if (tessera.equals("Κύκλος") || tessera.equals("Cycle")) apantisi4.setImageResource(R.drawable.shapes5);
+                        if (tessera.equals("Κύκλος") || tessera.equals("Circle")) apantisi4.setImageResource(R.drawable.shapes5);
                         if (tessera.equals("Καρδιά") || tessera.equals("Heart")) apantisi4.setImageResource(R.drawable.shapes6);
                         if (tessera.equals("Λουλούδι") || tessera.equals("Flower")) apantisi4.setImageResource(R.drawable.shapes7);
                         if (tessera.equals("Οβάλ") || tessera.equals("Oval")) apantisi4.setImageResource(R.drawable.shapes8);
