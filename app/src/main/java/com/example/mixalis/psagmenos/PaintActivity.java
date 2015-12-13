@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -15,7 +16,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import Misc.Preferences;
 
@@ -24,7 +29,7 @@ public class PaintActivity extends Activity implements ColorPickerDialog.OnColor
    FingerPaintActovity.MyView mv;
    Paint   mBitmapPaint;
     Bitmap mBitmap;
-int mousiki=0;
+ int mousiki=0;
     AlertDialog dialog;
     DrawingView dv ;
      Paint mPaint;
@@ -32,15 +37,25 @@ int mousiki=0;
      Canvas mCanvas;
     boolean hasAppeared = false;
     // private DrawingManager mDrawingManager=null;
-
+    Activity activity;
+    View mView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // setContentView(R.layout.paint);
+       // setContentView(R.layout.teest);
 
         dv = new DrawingView(this);
         setContentView(dv);
+
+
+       /* activity = this;
+        mView = new DrawingView(this);
+        activity.addContentView(mView, new ViewGroup.LayoutParams(500,
+                LinearLayout.LayoutParams.WRAP_CONTENT));*/   //zwgrafizei panw apo to custom layout!!
+
+
+
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
         mPaint.setDither(true);
@@ -51,6 +66,8 @@ int mousiki=0;
         mPaint.setStrokeCap(Paint.Cap.ROUND);
         mPaint.setStrokeWidth(12);
         new ColorPickerDialog(this, this, mPaint.getColor()).show();
+
+
 
 
     }
@@ -102,6 +119,11 @@ int mousiki=0;
         @Override
         protected void onDraw(Canvas canvas) {
             super.onDraw(canvas);
+           /* Paint p;
+            p=new Paint();
+            Bitmap b= BitmapFactory.decodeResource(getResources(), R.drawable.gelio);
+            p.setColor(Color.RED);
+            canvas.drawBitmap(b, 0, 0, p);*/   //vazei eikona sto background!!
 
             canvas.drawBitmap( mBitmap, 0, 0, mBitmapPaint);
 
@@ -119,6 +141,7 @@ int mousiki=0;
             mX = x;
             mY = y;
         }
+
         private void touch_move(float x, float y) {
             float dx = Math.abs(x - mX);
             float dy = Math.abs(y - mY);
@@ -163,13 +186,14 @@ int mousiki=0;
         }
 
 
+
     }
     private static final int COLOR_MENU_ID = Menu.FIRST;
     private static final int CLEAR = Menu.FIRST;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menupaint, menu);
+       inflater.inflate(R.menu.menupaint, menu);
         return true;
 
     }

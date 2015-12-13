@@ -98,10 +98,10 @@ int mousiki=0;
                         imageshape.setImageResource(id);
                     }
                 });
-                // String filenameSound = String.format(currentLanguage.equals("el") ? "colorsound%d" : "colorsoundenglish%d", randomNumer);
-                // int idSound = ShapesActivity.this.getResources().getIdentifier(filenameSound, "raw", ShapesActivity.this.getPackageName());
-                //questionMediaPlayer = MediaPlayer.create(ShapesActivity.this,idSound);
-                // questionMediaPlayer.start();
+                 String filenameSound = String.format(currentLanguage.equals("el") ? "shapes%d" : "shapesenglish%d", randomNumer);
+                 int idSound = ShapesActivity.this.getResources().getIdentifier(filenameSound, "raw", ShapesActivity.this.getPackageName());
+                questionMediaPlayer = MediaPlayer.create(ShapesActivity.this,idSound);
+                 questionMediaPlayer.start();
 
 
                 lastQuestionNumber.add(randomNumer);
@@ -427,10 +427,10 @@ int mousiki=0;
                                 imageshape.setImageResource(id);
                             }
                         });
-                    //    String filenameSound = String.format(currentLanguage.equals("el") ? "colorsound%d" : "colorsoundenglish%d", randomNumer);
-                     //   int idSound = ShapesActivity.this.getResources().getIdentifier(filenameSound, "raw", ShapesActivity.this.getPackageName());
-                      //  questionMediaPlayer = MediaPlayer.create(ShapesActivity.this, idSound);
-                      //  questionMediaPlayer.start();
+                        String filenameSound = String.format(currentLanguage.equals("el") ? "shapes%d" : "shapesenglish%d", randomNumer);
+                        int idSound = ShapesActivity.this.getResources().getIdentifier(filenameSound, "raw", ShapesActivity.this.getPackageName());
+                        questionMediaPlayer = MediaPlayer.create(ShapesActivity.this, idSound);
+                        questionMediaPlayer.start();
 
                         lastQuestionNumber.add(randomNumer);
                         erwtisi.setText(questions.get(randomNumer).getText());
