@@ -30,7 +30,7 @@ public class ExternalDbOpenHelper extends DatabaseHelper implements ChangeLangua
     public static String DB_PATH;
 
     //Database file name
-    public static String DB_NAME = "psagmenossschildrendb.db";
+    public static String DB_NAME = "psagmenosssschildrendb.db";
     public SQLiteDatabase database;
     public final Context context;
     private static ExternalDbOpenHelper _instance;
@@ -45,7 +45,7 @@ public class ExternalDbOpenHelper extends DatabaseHelper implements ChangeLangua
         _instance = this;
         SharedPreferences preferences = context.getSharedPreferences(context.getPackageName(), Context.MODE_PRIVATE);
         String currentLanguage = preferences.getString(MainActivity.LANGUAGE_KEY,Locale.getDefault().getLanguage().startsWith("el")?"el": "en");
-        ExternalDbOpenHelper.DB_NAME =  currentLanguage.equals("el")?"psagmenossschildrendb.db":"psagmenossschildrenenglishdb.db";
+        ExternalDbOpenHelper.DB_NAME =  currentLanguage.equals("el")?"psagmenosssschildrendb.db":"psagmenosssschildrenenglishdb.db";
 
         //Write a full path to the databases of your application
         String packageName = context.getPackageName();
@@ -262,9 +262,9 @@ public class ExternalDbOpenHelper extends DatabaseHelper implements ChangeLangua
     @Override
     public void onLanguageChange(boolean isGreekLanguage) {
        if( isGreekLanguage)
-        DB_NAME = "psagmenossschildrendb.db";
+        DB_NAME = "psagmenosssschildrendb.db";
         else
-           DB_NAME = "psagmenossschildrenenglishdb.db";
+           DB_NAME = "psagmenosssschildrenenglishdb.db";
     }
 
 
