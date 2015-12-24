@@ -289,17 +289,16 @@
 
 
         <ImageButton
-            android:id="@+id/zwgrfikir"
+            android:id="@+id/shapes"
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:layout_weight="50"
-            android:visibility="invisible"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="30dp"
             android:padding="8dp"
             android:scaleType="fitCenter"
             android:background="@drawable/roundbouton"
             android:soundEffectsEnabled="true"
-            android:src="@drawable/zwgrafiki"
+            android:src="@drawable/sximata"
             android:textAllCaps="false"
             android:textStyle="italic"
 
@@ -324,7 +323,7 @@
 
         <TextView
             android:id="@+id/errortext"
-            android:layout_width="65dp"
+            android:layout_width="64dp"
             android:layout_height="wrap_content"
             android:layout_weight="50"
             android:text="@string/paint"
@@ -337,15 +336,16 @@
 
         <TextView
             android:id="@+id/cpasetext"
-            android:layout_width="65dp"
+            android:layout_width="64dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
             android:gravity="center_horizontal"
             android:layout_weight="50"
-            android:text=""
             android:textSize="17sp"
             android:textColor="#0000ff"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:text="@string/shapes"
+            />
 
     </LinearLayout>
 
