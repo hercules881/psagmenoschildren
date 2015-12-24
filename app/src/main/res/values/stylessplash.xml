@@ -1,0 +1,10 @@
+
+<resources>
+
+    <style name="themesplash" >
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">#e8e8e8</item>
+
+    </style>
+
+</resources>
