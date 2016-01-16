@@ -228,6 +228,7 @@ if (mousiki!=1) {
     public void onPollfishSurveyCompleted(boolean b, int i) {
         Preferences.set(MainActivity.this, "poll", POLLSELECTED, true);
         findViewById(id.pollview).setVisibility(View.GONE);
+        Log.d("Pollfish","Poll completed");
     }
 
     @Override
