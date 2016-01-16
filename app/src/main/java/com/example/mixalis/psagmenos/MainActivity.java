@@ -202,7 +202,7 @@ if (mousiki!=1) {
     @Override
     public void onPollfishClosed() {
         Log.d("Pollfish","Poll closed");
-        boolean ispollcompleted=(boolean) Preferences.get(this, "poll", POLLSELECTED, false);
+        boolean ispollcompleted=(boolean) Preferences.get(MainActivity.this, "poll", POLLSELECTED, false);
         if(!ispollcompleted)
         {
             Toast.makeText(this, string.polminima, Toast.LENGTH_SHORT).show();
@@ -226,13 +226,9 @@ if (mousiki!=1) {
 
     @Override
     public void onPollfishSurveyCompleted(boolean b, int i) {
-        Log.d("Pollfish","Poll completed");
-        findViewById(id.pollview).setVisibility(View.GONE);
-
+        Log.d("Pollfish", "Poll completed");
         Preferences.set(MainActivity.this, "poll", POLLSELECTED, true);
-
-
-
+        findViewById(id.pollview).setVisibility(View.GONE);
     }
 
     @Override
