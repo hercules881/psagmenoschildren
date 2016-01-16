@@ -9,6 +9,7 @@ import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,6 +19,14 @@ import android.widget.TextView;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+
+import com.pollfish.constants.Position;
+import com.pollfish.interfaces.PollfishClosedListener;
+import com.pollfish.interfaces.PollfishOpenedListener;
+import com.pollfish.interfaces.PollfishSurveyCompletedListener;
+import com.pollfish.interfaces.PollfishSurveyNotAvailableListener;
+import com.pollfish.main.PollFish;
+
 import java.sql.SQLException;
 import java.util.Locale;
 
@@ -27,7 +36,7 @@ import Misc.Preferences;
 import static android.media.MediaPlayer.*;
 import static com.example.mixalis.psagmenos.R.*;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements PollfishSurveyCompletedListener, PollfishClosedListener, PollfishOpenedListener, PollfishSurveyNotAvailableListener {
     private TextView enarxi;
     private TextView settings;
     private TextView playAndLearn;
@@ -153,6 +162,8 @@ int mousiki=0;
             mediaPlayer.start();
 
         super.onResume();
+        PollFish.init(this, this.getResources().getString(string.pollfish_key), Position.TOP_LEFT, 0);
+
     }
 
 @Override
@@ -166,4 +177,26 @@ if (mousiki!=1) {
     }
 
 
+    @Override
+    public void onPollfishClosed() {
+        Log.d("Pollfish","Poll closed");
+    }
+
+    @Override
+    public void onPollfishOpened() {
+        Log.d("Pollfish","Poll opened");
+
+    }
+
+    @Override
+    public void onPollfishSurveyCompleted(boolean b, int i) {
+        Log.d("Pollfish","Poll completed");
+
+    }
+
+    @Override
+    public void onPollfishSurveyNotAvailable() {
+        Log.d("Pollfish","Poll not available");
+
+    }
 }
