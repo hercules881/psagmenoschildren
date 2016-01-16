@@ -25,6 +25,7 @@ import com.pollfish.interfaces.PollfishClosedListener;
 import com.pollfish.interfaces.PollfishOpenedListener;
 import com.pollfish.interfaces.PollfishSurveyCompletedListener;
 import com.pollfish.interfaces.PollfishSurveyNotAvailableListener;
+import com.pollfish.interfaces.PollfishSurveyReceivedListener;
 import com.pollfish.main.PollFish;
 
 import java.sql.SQLException;
@@ -36,7 +37,7 @@ import Misc.Preferences;
 import static android.media.MediaPlayer.*;
 import static com.example.mixalis.psagmenos.R.*;
 
-public class MainActivity extends Activity implements PollfishSurveyCompletedListener, PollfishClosedListener, PollfishOpenedListener, PollfishSurveyNotAvailableListener {
+public class MainActivity extends Activity implements PollfishSurveyCompletedListener, PollfishClosedListener, PollfishOpenedListener, PollfishSurveyNotAvailableListener, PollfishSurveyReceivedListener {
     private TextView enarxi;
     private TextView settings;
     private TextView playAndLearn;
@@ -198,5 +199,10 @@ if (mousiki!=1) {
     public void onPollfishSurveyNotAvailable() {
         Log.d("Pollfish","Poll not available");
 
+    }
+
+    @Override
+    public void onPollfishSurveyReceived(boolean b, int i) {
+        Log.d("Pollfish","Poll received");
     }
 }
