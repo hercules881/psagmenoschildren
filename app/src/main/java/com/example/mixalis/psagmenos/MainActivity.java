@@ -183,9 +183,6 @@ int mousiki=0;
         PollFish.customInit(this, this.getResources().getString(string.pollfish_key), Position.TOP_LEFT, 0);
 
 
-
-
-
     }
 
 @Override

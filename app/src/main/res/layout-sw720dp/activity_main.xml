@@ -81,7 +81,12 @@
         android:layout_centerHorizontal="true"
         />
 
-
+    <View
+        android:id="@+id/pollview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f1d8ff"
+        android:visibility="gone"/>
 
 
 
