@@ -50,6 +50,7 @@ public class MainActivity extends Activity implements PollfishSurveyCompletedLis
     boolean isSoundEnabled;
     ProgressDialog polldialog;
 int mousiki=0;
+    public final static String POLLSELECTED = "pollselected";
 
 
     @Override
@@ -176,7 +177,14 @@ int mousiki=0;
             mediaPlayer.start();
 
         super.onResume();
+        boolean ispollcompleted=(boolean) Preferences.get(this, "poll", POLLSELECTED, false);
+
+        if(!ispollcompleted)
         PollFish.customInit(this, this.getResources().getString(string.pollfish_key), Position.TOP_LEFT, 0);
+
+
+
+
 
     }
 
@@ -212,6 +220,7 @@ if (mousiki!=1) {
     public void onPollfishSurveyCompleted(boolean b, int i) {
         Log.d("Pollfish","Poll completed");
         findViewById(id.pollview).setVisibility(View.GONE);
+        Preferences.set(MainActivity.this, "poll", POLLSELECTED, true);
 
 
 
