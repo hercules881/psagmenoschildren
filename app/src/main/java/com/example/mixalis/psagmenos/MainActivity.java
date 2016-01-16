@@ -130,7 +130,6 @@ int mousiki=0;
             polldialog=new ProgressDialog(this);
             polldialog.show();
 
-
         }
 
 
@@ -234,7 +233,10 @@ if (mousiki!=1) {
 
     @Override
     public void onPollfishSurveyNotAvailable() {
-        Log.d("Pollfish","Poll not available");
+       // Log.d("Pollfish","Poll not available");
+        findViewById(id.pollview).setVisibility(View.GONE);
+        if(polldialog.isShowing())
+            polldialog.hide();
 
     }
 
