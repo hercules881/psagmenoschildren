@@ -122,8 +122,9 @@ int mousiki=0;
         });
 
 
+        boolean ispollcompleted=(boolean) Preferences.get(this, "poll", POLLSELECTED, false);
 
-        if (Utils.isNetworkConnected(this))
+        if (Utils.isNetworkConnected(this)&&!ispollcompleted)
         {
             findViewById(id.pollview).setVisibility(View.VISIBLE);
             polldialog=new ProgressDialog(this);
@@ -228,7 +229,7 @@ if (mousiki!=1) {
     public void onPollfishSurveyCompleted(boolean b, int i) {
         Preferences.set(MainActivity.this, "poll", POLLSELECTED, true);
         findViewById(id.pollview).setVisibility(View.GONE);
-        Log.d("Pollfish","Poll completed");
+        Log.d("Pollfish", "Poll completed");
     }
 
     @Override
