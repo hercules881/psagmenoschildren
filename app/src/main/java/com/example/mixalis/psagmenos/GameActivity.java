@@ -19,6 +19,9 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.lang.reflect.GenericArrayType;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -79,9 +82,12 @@ int mousiki=0;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
+
+
         isColor =  intent.getBooleanExtra("iscolor", false);
         isAlphabete = intent.getBooleanExtra("isalphabete", false);
         setContentView(!isColor && !isAlphabete ?R.layout.game:R.layout.gamexrwmata);
+        loadAd();
         if(isAlphabete) {
             findViewById(R.id.imageColorCategory).setVisibility(View.INVISIBLE);
             findViewById(R.id.linear4).setVisibility(View.INVISIBLE);
@@ -526,6 +532,15 @@ int mousiki=0;
             }
         });
 
+    }
+
+    private void loadAd() {
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                // All emulators
+                .addTestDevice("56DEAD6FB0B1FED930ACAD49996B6A10")  // An example device ID
+                .build();
+        mAdView.loadAd(adRequest);
     }
 
     private void createHashMap() {
