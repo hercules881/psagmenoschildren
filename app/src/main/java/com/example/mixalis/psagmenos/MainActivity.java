@@ -179,9 +179,10 @@ int mousiki=0;
         super.onResume();
         boolean ispollcompleted=(boolean) Preferences.get(this, "poll", POLLSELECTED, false);
 
-        if(!ispollcompleted)
-        PollFish.customInit(this, this.getResources().getString(string.pollfish_key), Position.TOP_LEFT, 0);
+        if(!ispollcompleted) {
 
+            PollFish.customInit(this, this.getResources().getString(string.pollfish_key), Position.TOP_LEFT, 0);
+        }
 
     }
 
@@ -202,7 +203,7 @@ if (mousiki!=1) {
         boolean ispollcompleted=(boolean) Preferences.get(MainActivity.this, "poll", POLLSELECTED, false);
         if(!ispollcompleted)
         {
-            Toast.makeText(this, string.polminima, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, string.polminima, Toast.LENGTH_SHORT).show();
             PollFish.customInit(this, this.getResources().getString(string.pollfish_key), Position.TOP_LEFT, 0);
 
 
@@ -218,6 +219,7 @@ if (mousiki!=1) {
     @Override
     public void onPollfishOpened() {
         Log.d("Pollfish","Poll opened");
+        Toast.makeText(this, this.getResources().getString(R.string.polminima), Toast.LENGTH_LONG).show();
 
     }
 
