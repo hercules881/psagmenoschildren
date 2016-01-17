@@ -221,6 +221,7 @@ if (mousiki!=1) {
         Log.d("Pollfish","Poll opened");
         Toast.makeText(this, this.getResources().getString(R.string.polminima), Toast.LENGTH_LONG).show();
         Toast.makeText(this, this.getResources().getString(R.string.polminima), Toast.LENGTH_LONG).show();
+        Toast.makeText(this, this.getResources().getString(R.string.polminima), Toast.LENGTH_LONG).show();
 
     }
 
