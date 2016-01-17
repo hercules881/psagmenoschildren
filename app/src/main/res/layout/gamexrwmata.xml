@@ -3,6 +3,8 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fonto6"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+
     >
 
 
@@ -16,7 +18,7 @@
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         />
 
 
@@ -149,7 +151,7 @@
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:layout_below="@id/erwtisi"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:gravity="center"
         >
 
@@ -198,7 +200,7 @@
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:layout_below="@id/linear1"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:gravity="center"
         >
 
@@ -248,7 +250,7 @@
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:layout_below="@id/linear2"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:gravity="center"
         >
 
@@ -323,5 +325,13 @@
 
             />
     </LinearLayout>
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
 
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-2008049270880305/9705183074">
+    </com.google.android.gms.ads.AdView>
 </LinearLayout>

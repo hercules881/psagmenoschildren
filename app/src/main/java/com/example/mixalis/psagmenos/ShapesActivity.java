@@ -15,6 +15,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
@@ -65,6 +68,8 @@ int mousiki=0;
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         setContentView(R.layout.gameshapes);
+
+        loadAd();
 
         final String epelexes = intent.getExtras().getString("epelexes");
         TextView title = (TextView) findViewById(R.id.title);
@@ -505,6 +510,15 @@ int mousiki=0;
 
             }
         }, 1500);
+    }
+
+    private void loadAd() {
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                // All emulators
+                .addTestDevice("B91B02905799AD43D0D499D045263F18")  // An example device ID
+                .build();
+        mAdView.loadAd(adRequest);
     }
 
 

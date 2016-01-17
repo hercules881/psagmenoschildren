@@ -538,7 +538,7 @@ int mousiki=0;
         AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder()
                 // All emulators
-                .addTestDevice("56DEAD6FB0B1FED930ACAD49996B6A10")  // An example device ID
+                .addTestDevice("B91B02905799AD43D0D499D045263F18")  // An example device ID
                 .build();
         mAdView.loadAd(adRequest);
     }
