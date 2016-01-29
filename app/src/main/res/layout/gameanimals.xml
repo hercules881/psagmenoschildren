@@ -21,7 +21,7 @@
 
 
 
-        <ImageView
+        <Views.CustomImageView
             android:id="@+id/elefantas"
             android:layout_width="75dp"
             android:layout_height="75dp"
@@ -37,7 +37,7 @@
             />
 
 
-        <ImageView
+        <Views.CustomImageView
             android:id="@+id/gourouni"
             android:layout_width="75dp"
             android:layout_height="75dp"
@@ -70,7 +70,7 @@
 
 
 
-        <ImageView
+        <Views.CustomImageView
             android:id="@+id/bird"
             android:layout_width="75dp"
             android:layout_height="75dp"
@@ -86,7 +86,7 @@
             />
 
 
-        <ImageView
+        <Views.CustomImageView
             android:id="@+id/delfini"
             android:layout_width="75dp"
             android:layout_height="75dp"
@@ -120,7 +120,7 @@
 
 
 
-        <ImageView
+        <Views.CustomImageView
             android:id="@+id/alogo"
             android:layout_width="75dp"
             android:layout_height="75dp"
@@ -136,7 +136,7 @@
             />
 
 
-        <ImageView
+        <Views.CustomImageView
             android:id="@+id/agelada"
             android:layout_width="75dp"
             android:layout_height="75dp"
@@ -170,7 +170,7 @@
 
 
 
-        <ImageView
+        <Views.CustomImageView
             android:id="@+id/skilos"
             android:layout_width="75dp"
             android:layout_height="75dp"
@@ -186,7 +186,7 @@
             />
 
 
-        <ImageView
+        <Views.CustomImageView
             android:id="@+id/kota"
             android:layout_width="75dp"
             android:layout_height="75dp"
@@ -219,7 +219,7 @@
 
 
 
-        <ImageView
+        <Views.CustomImageView
             android:id="@+id/liontari"
             android:layout_width="75dp"
             android:layout_height="75dp"
@@ -235,7 +235,7 @@
             />
 
 
-        <ImageView
+        <Views.CustomImageView
             android:id="@+id/gata"
             android:layout_width="75dp"
             android:layout_height="75dp"

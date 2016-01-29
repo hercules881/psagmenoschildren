@@ -7,6 +7,8 @@ import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -55,6 +57,7 @@ public class AnimalsActivity extends Activity {
                 int idSound = AnimalsActivity.this.getResources().getIdentifier(filenameSound, "raw", AnimalsActivity.this.getPackageName());
                 questionMediaPlayer = MediaPlayer.create(AnimalsActivity.this, idSound);
                 questionMediaPlayer.start();
+
             }
         });
 
