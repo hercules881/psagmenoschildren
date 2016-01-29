@@ -32,6 +32,8 @@ int mousiki=0;
     private ImageButton xrwmata;
     private ImageButton zwgrafiki;
     private ImageButton shapes;
+    private ImageButton animals;
+
 
     public EnarxiActivity() {
     }
@@ -166,6 +168,19 @@ mousiki=1;
                 startActivity(i);
             }
         });
+
+
+        animals = (ImageButton) findViewById(R.id.animals);
+        animals.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                mousiki=1;
+                String epelexes =EnarxiActivity.this.getString(R.string.animals);
+                Intent i = new Intent(EnarxiActivity.this, AnimalsActivity.class);
+                i.putExtra("epelexes", epelexes);
+                startActivity(i);
+            }
+        });
+
 
 }
 

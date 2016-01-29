@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dasos"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+
+    >
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/linear5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:layout_below="@id/linear1"
+        android:layout_marginTop="25dp"
+        android:gravity="center">
+
+
+
+        <ImageView
+            android:id="@+id/elefantas"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_weight="50"
+            android:layout_marginRight="30dp"
+
+            android:soundEffectsEnabled="true"
+            android:scaleType="fitCenter"
+            android:textAllCaps="false"
+            android:textStyle="italic"
+            android:padding="2dp"
+            android:src="@drawable/elephant"
+            />
+
+
+        <ImageView
+            android:id="@+id/gourouni"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:textAllCaps="false"
+            android:layout_weight="50"
+            android:layout_marginLeft="30dp"
+            android:scaleType="fitCenter"
+
+            android:soundEffectsEnabled="true"
+            android:padding="3dp"
+            android:textStyle="italic"
+            android:src="@drawable/pig"
+            />
+    </LinearLayout>
+
+
+
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/linear4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:layout_below="@id/linear1"
+        android:layout_marginTop="15dp"
+        android:gravity="center">
+
+
+
+        <ImageView
+            android:id="@+id/bird"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_weight="50"
+            android:layout_marginRight="30dp"
+
+            android:soundEffectsEnabled="true"
+            android:scaleType="fitCenter"
+            android:textAllCaps="false"
+            android:textStyle="italic"
+            android:padding="0dp"
+            android:src="@drawable/bird"
+            />
+
+
+        <ImageView
+            android:id="@+id/delfini"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:textAllCaps="false"
+            android:layout_weight="50"
+            android:layout_marginLeft="30dp"
+            android:scaleType="fitCenter"
+
+            android:soundEffectsEnabled="true"
+            android:padding="9dp"
+            android:textStyle="italic"
+            android:src="@drawable/delfini"
+            />
+    </LinearLayout>
+
+
+
+
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/linear3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:layout_below="@id/linear1"
+        android:layout_marginTop="15dp"
+        android:gravity="center">
+
+
+
+        <ImageView
+            android:id="@+id/alogo"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_weight="50"
+            android:layout_marginRight="30dp"
+
+            android:soundEffectsEnabled="true"
+            android:scaleType="fitCenter"
+            android:textAllCaps="false"
+            android:textStyle="italic"
+            android:padding="0dp"
+            android:src="@drawable/alogo"
+            />
+
+
+        <ImageView
+            android:id="@+id/agelada"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:textAllCaps="false"
+            android:layout_weight="50"
+            android:layout_marginLeft="30dp"
+            android:scaleType="fitCenter"
+
+            android:soundEffectsEnabled="true"
+            android:padding="1dp"
+            android:textStyle="italic"
+            android:src="@drawable/agelada"
+            />
+    </LinearLayout>
+
+
+
+
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/linear1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:layout_below="@id/linear1"
+        android:layout_marginTop="15dp"
+        android:gravity="center">
+
+
+
+        <ImageView
+            android:id="@+id/skilos"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_weight="50"
+            android:layout_marginRight="30dp"
+
+            android:soundEffectsEnabled="true"
+            android:scaleType="fitCenter"
+            android:textAllCaps="false"
+            android:textStyle="italic"
+            android:padding="0dp"
+            android:src="@drawable/dog"
+            />
+
+
+        <ImageView
+            android:id="@+id/kota"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:textAllCaps="false"
+            android:layout_weight="50"
+            android:layout_marginLeft="30dp"
+            android:scaleType="fitCenter"
+
+            android:soundEffectsEnabled="true"
+            android:padding="1dp"
+            android:textStyle="italic"
+            android:src="@drawable/chicken"
+            />
+    </LinearLayout>
+
+
+
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/linear2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:layout_below="@id/linear1"
+        android:layout_marginTop="15dp"
+        android:gravity="center">
+
+
+
+        <ImageView
+            android:id="@+id/liontari"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_weight="50"
+            android:layout_marginRight="30dp"
+
+            android:soundEffectsEnabled="true"
+            android:scaleType="fitCenter"
+            android:textAllCaps="false"
+            android:textStyle="italic"
+            android:padding="0dp"
+            android:src="@drawable/lion"
+            />
+
+
+        <ImageView
+            android:id="@+id/gata"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:textAllCaps="false"
+            android:layout_weight="50"
+            android:layout_marginLeft="30dp"
+            android:scaleType="fitCenter"
+
+            android:soundEffectsEnabled="true"
+            android:padding="0dp"
+            android:textStyle="italic"
+            android:src="@drawable/cat"
+            />
+    </LinearLayout>
+
+
+
+</LinearLayout>

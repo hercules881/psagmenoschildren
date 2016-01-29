@@ -6,15 +6,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.os.Bundle;
@@ -130,6 +134,7 @@ int mousiki=0;
             polldialog=new ProgressDialog(this);
             polldialog.show();
 
+
         }
 
 
@@ -209,21 +214,19 @@ if (mousiki!=1) {
 
         }
 
-
-
-
-
-
     }
+
+
 
     @Override
     public void onPollfishOpened() {
-        Log.d("Pollfish","Poll opened");
+        Log.d("Pollfish", "Poll opened");
         Toast.makeText(this, this.getResources().getString(R.string.polminima), Toast.LENGTH_LONG).show();
         Toast.makeText(this, this.getResources().getString(R.string.polminima), Toast.LENGTH_LONG).show();
         Toast.makeText(this, this.getResources().getString(R.string.polminima), Toast.LENGTH_LONG).show();
 
     }
+
 
     @Override
     public void onPollfishSurveyCompleted(boolean b, int i) {
@@ -245,6 +248,5 @@ if (mousiki!=1) {
     public void onPollfishSurveyReceived(boolean b, int i) {
         Log.d("Pollfish","Poll received");
         polldialog.hide();
-
     }
 }
