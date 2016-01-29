@@ -1,28 +1,20 @@
 package com.example.mixalis.psagmenos;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-
-import java.lang.reflect.GenericArrayType;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
@@ -34,8 +26,6 @@ import Database.Answer;
 import Database.ExternalDbOpenHelper;
 import Database.Question;
 import Misc.Preferences;
-
-import static com.example.mixalis.psagmenos.R.string.tittledialogcry;
 
 /**
  * Created by mixalis on 14/11/2015.
@@ -87,7 +77,6 @@ int mousiki=0;
         isColor =  intent.getBooleanExtra("iscolor", false);
         isAlphabete = intent.getBooleanExtra("isalphabete", false);
         setContentView(!isColor && !isAlphabete ?R.layout.game:R.layout.gamexrwmata);
-        loadAd();
         if(isAlphabete) {
             findViewById(R.id.imageColorCategory).setVisibility(View.INVISIBLE);
             findViewById(R.id.linear4).setVisibility(View.INVISIBLE);
@@ -534,15 +523,6 @@ int mousiki=0;
 
     }
 
-    private void loadAd() {
-        AdView mAdView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder()
-                // All emulators
-                .addTestDevice("56DEAD6FB0B1FED930ACAD49996B6A10")  // An example device ID
-                .build();
-        //vaze auto se release AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
-    }
 
     private void createHashMap() {
         String[] colorAnswersId = new String[]{this.getString(R.string.black), this.getString(R.string.blue),this.getString(R.string.green), this.getString(R.string.red),this.getString(R.string.brown), this.getString(R.string.yellow), this.getString(R.string.white), this.getString(R.string.grey), this.getString(R.string.orange)};

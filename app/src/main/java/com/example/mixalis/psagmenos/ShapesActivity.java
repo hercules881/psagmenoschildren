@@ -9,14 +9,9 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -69,7 +64,6 @@ int mousiki=0;
         Intent intent = getIntent();
         setContentView(R.layout.gameshapes);
 
-        loadAd();
 
         final String epelexes = intent.getExtras().getString("epelexes");
         TextView title = (TextView) findViewById(R.id.title);
@@ -511,17 +505,6 @@ int mousiki=0;
             }
         }, 1500);
     }
-
-    private void loadAd() {
-        AdView mAdView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder()
-                // All emulators
-                .addTestDevice("56DEAD6FB0B1FED930ACAD49996B6A10")  // An example device ID
-                .build();
-        //vaze auto se release AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
-    }
-
 
     public int getRandomWithExclusion(Random rnd, int start, int end, ArrayList<Integer> exclude) {
         Random rand = new Random();

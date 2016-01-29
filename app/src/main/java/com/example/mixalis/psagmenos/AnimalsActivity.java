@@ -15,6 +15,8 @@ import android.widget.ImageView;
 
 import java.util.Locale;
 
+import Misc.Preferences;
+
 /**
  * Created by mixalis on 26/1/2016.
  */
@@ -207,5 +209,33 @@ randomNumer=1;
 
 
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (questionMediaPlayer != null)
+            questionMediaPlayer.release();
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (!this.isFinishing()) {
+            MainActivity.mediaPlayer.pause();
+            // MainActivity.mediaPlayer.stop();
+
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        boolean isSoundEnabled;
+        isSoundEnabled = (boolean) Preferences.get(this, RythmiseisActivity.SOUNDSETTINGS, RythmiseisActivity.ISSOUNDENABLED, true);
+        if(isSoundEnabled && !MainActivity.mediaPlayer.isPlaying())
+            MainActivity.mediaPlayer.start();
+
+        super.onResume();
+        super.onResume();
     }
 }

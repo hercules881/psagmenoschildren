@@ -26,13 +26,6 @@ import android.app.Activity;
 import android.view.Menu;
 import android.widget.Toast;
 
-import com.pollfish.constants.Position;
-import com.pollfish.interfaces.PollfishClosedListener;
-import com.pollfish.interfaces.PollfishOpenedListener;
-import com.pollfish.interfaces.PollfishSurveyCompletedListener;
-import com.pollfish.interfaces.PollfishSurveyNotAvailableListener;
-import com.pollfish.interfaces.PollfishSurveyReceivedListener;
-import com.pollfish.main.PollFish;
 
 import java.sql.SQLException;
 import java.util.Locale;
@@ -44,7 +37,7 @@ import Misc.Utils;
 import static android.media.MediaPlayer.*;
 import static com.example.mixalis.psagmenos.R.*;
 
-public class MainActivity extends Activity implements PollfishSurveyCompletedListener, PollfishClosedListener, PollfishOpenedListener, PollfishSurveyNotAvailableListener, PollfishSurveyReceivedListener {
+public class MainActivity extends Activity  {
     private TextView enarxi;
     private TextView settings;
     private TextView playAndLearn;
@@ -54,7 +47,6 @@ public class MainActivity extends Activity implements PollfishSurveyCompletedLis
     boolean isSoundEnabled;
     ProgressDialog polldialog;
 int mousiki=0;
-    public final static String POLLSELECTED = "pollselected";
 
 
     @Override
@@ -126,16 +118,6 @@ int mousiki=0;
         });
 
 
-        boolean ispollcompleted=(boolean) Preferences.get(this, "poll", POLLSELECTED, false);
-
-        if (Utils.isNetworkConnected(this)&&!ispollcompleted)
-        {
-            findViewById(id.pollview).setVisibility(View.VISIBLE);
-            polldialog=new ProgressDialog(this);
-            polldialog.show();
-
-
-        }
 
 
     }
@@ -182,12 +164,7 @@ int mousiki=0;
             mediaPlayer.start();
 
         super.onResume();
-        boolean ispollcompleted=(boolean) Preferences.get(this, "poll", POLLSELECTED, false);
 
-        if(!ispollcompleted) {
-
-            PollFish.customInit(this, this.getResources().getString(string.pollfish_key), Position.TOP_LEFT, 0);
-        }
 
     }
 
@@ -202,51 +179,7 @@ if (mousiki!=1) {
     }
 
 
-    @Override
-    public void onPollfishClosed() {
-        Log.d("Pollfish","Poll closed");
-        boolean ispollcompleted=(boolean) Preferences.get(MainActivity.this, "poll", POLLSELECTED, false);
-        if(!ispollcompleted)
-        {
-            //Toast.makeText(this, string.polminima, Toast.LENGTH_SHORT).show();
-            PollFish.customInit(this, this.getResources().getString(string.pollfish_key), Position.TOP_LEFT, 0);
-
-
-        }
-
-    }
 
 
 
-    @Override
-    public void onPollfishOpened() {
-        Log.d("Pollfish", "Poll opened");
-        Toast.makeText(this, this.getResources().getString(R.string.polminima), Toast.LENGTH_LONG).show();
-        Toast.makeText(this, this.getResources().getString(R.string.polminima), Toast.LENGTH_LONG).show();
-        Toast.makeText(this, this.getResources().getString(R.string.polminima), Toast.LENGTH_LONG).show();
-
-    }
-
-
-    @Override
-    public void onPollfishSurveyCompleted(boolean b, int i) {
-        Preferences.set(MainActivity.this, "poll", POLLSELECTED, true);
-        findViewById(id.pollview).setVisibility(View.GONE);
-        Log.d("Pollfish", "Poll completed");
-    }
-
-    @Override
-    public void onPollfishSurveyNotAvailable() {
-       // Log.d("Pollfish","Poll not available");
-        findViewById(id.pollview).setVisibility(View.GONE);
-        if(polldialog.isShowing())
-            polldialog.hide();
-
-    }
-
-    @Override
-    public void onPollfishSurveyReceived(boolean b, int i) {
-        Log.d("Pollfish","Poll received");
-        polldialog.hide();
-    }
 }

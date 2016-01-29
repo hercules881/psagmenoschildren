@@ -265,13 +265,5 @@
 
             />
     </LinearLayout>
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-android:layout_marginTop="20dp"
-        ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-2008049270880305/2042315475">
-    </com.google.android.gms.ads.AdView>
+
 </LinearLayout>

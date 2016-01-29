@@ -16,6 +16,8 @@ import Database.ExternalDbOpenHelper;
 import Misc.ChangeLanguageListener;
 import Misc.Preferences;
 
+import static android.media.MediaPlayer.create;
+
 /**
  * Created by mixalis on 13/11/2015.
  */
@@ -57,6 +59,7 @@ int mousiki=0;
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isSwitchOn) {
                 if(isSwitchOn){
+                    MainActivity.mediaPlayer = create(RythmiseisActivity.this, R.raw.back1);
                     MainActivity.mediaPlayer.start();
                 }
                 else{
