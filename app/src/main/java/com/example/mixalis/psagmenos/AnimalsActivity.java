@@ -55,10 +55,19 @@ public class AnimalsActivity extends Activity {
                 if (questionMediaPlayer != null)
                     questionMediaPlayer.release();
                 randomNumer=2;
-                String filenameSound = String.format(currentLanguage.equals("el") ? "animals%d" : "animalsenglish%d", randomNumer);
+                String filenameSound = currentLanguage.equals("el") ? "elefantas":"elefantasagglika";
                 int idSound = AnimalsActivity.this.getResources().getIdentifier(filenameSound, "raw", AnimalsActivity.this.getPackageName());
                 questionMediaPlayer = MediaPlayer.create(AnimalsActivity.this, idSound);
                 questionMediaPlayer.start();
+                questionMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        String filenameSound = String.format(currentLanguage.equals("el") ? "animals%d" : "animalsenglish%d", randomNumer);
+                        int idSound = AnimalsActivity.this.getResources().getIdentifier(filenameSound, "raw", AnimalsActivity.this.getPackageName());
+                        questionMediaPlayer =  MediaPlayer.create(AnimalsActivity.this, idSound);
+                        questionMediaPlayer.start();
+                    }
+                });
 
             }
         });
@@ -71,10 +80,19 @@ public class AnimalsActivity extends Activity {
                 if (questionMediaPlayer != null)
                     questionMediaPlayer.release();
                 randomNumer=3;
-                String filenameSound = String.format(currentLanguage.equals("el") ? "animals%d" : "animalsenglish%d", randomNumer);
+                String filenameSound = currentLanguage.equals("el") ? "gourouni":"gourouniagglika";
                 int idSound = AnimalsActivity.this.getResources().getIdentifier(filenameSound, "raw", AnimalsActivity.this.getPackageName());
                 questionMediaPlayer = MediaPlayer.create(AnimalsActivity.this, idSound);
                 questionMediaPlayer.start();
+                questionMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        String filenameSound = String.format(currentLanguage.equals("el") ? "animals%d" : "animalsenglish%d", randomNumer);
+                        int idSound = AnimalsActivity.this.getResources().getIdentifier(filenameSound, "raw", AnimalsActivity.this.getPackageName());
+                        questionMediaPlayer =  MediaPlayer.create(AnimalsActivity.this, idSound);
+                        questionMediaPlayer.start();
+                    }
+                });
             }
         });
 
@@ -86,10 +104,20 @@ public class AnimalsActivity extends Activity {
                 if (questionMediaPlayer != null)
                     questionMediaPlayer.release();
                 randomNumer=4;
-                String filenameSound = String.format(currentLanguage.equals("el") ? "animals%d" : "animalsenglish%d", randomNumer);
+                String filenameSound = currentLanguage.equals("el") ? "pouli":"pouliagglika";
                 int idSound = AnimalsActivity.this.getResources().getIdentifier(filenameSound, "raw", AnimalsActivity.this.getPackageName());
-                questionMediaPlayer = MediaPlayer.create(AnimalsActivity.this, idSound);
+
+                 questionMediaPlayer = MediaPlayer.create(AnimalsActivity.this, idSound);
                 questionMediaPlayer.start();
+                questionMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        String filenameSound = String.format(currentLanguage.equals("el") ? "animals%d" : "animalsenglish%d", randomNumer);
+                        int idSound = AnimalsActivity.this.getResources().getIdentifier(filenameSound, "raw", AnimalsActivity.this.getPackageName());
+                        questionMediaPlayer =  MediaPlayer.create(AnimalsActivity.this, idSound);
+                        questionMediaPlayer.start();
+                    }
+                });
             }
         });
 
@@ -101,10 +129,19 @@ public class AnimalsActivity extends Activity {
                 if (questionMediaPlayer != null)
                     questionMediaPlayer.release();
                 randomNumer=5;
-                String filenameSound = String.format(currentLanguage.equals("el") ? "animals%d" : "animalsenglish%d", randomNumer);
+                String filenameSound = currentLanguage.equals("el") ? "delfini":"delfiniagglika";
                 int idSound = AnimalsActivity.this.getResources().getIdentifier(filenameSound, "raw", AnimalsActivity.this.getPackageName());
                 questionMediaPlayer = MediaPlayer.create(AnimalsActivity.this, idSound);
                 questionMediaPlayer.start();
+                questionMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        String filenameSound = String.format(currentLanguage.equals("el") ? "animals%d" : "animalsenglish%d", randomNumer);
+                        int idSound = AnimalsActivity.this.getResources().getIdentifier(filenameSound, "raw", AnimalsActivity.this.getPackageName());
+                        questionMediaPlayer =  MediaPlayer.create(AnimalsActivity.this, idSound);
+                        questionMediaPlayer.start();
+                    }
+                });
             }
         });
 
@@ -115,10 +152,19 @@ public class AnimalsActivity extends Activity {
                 if (questionMediaPlayer != null)
                     questionMediaPlayer.release();
                 randomNumer=6;
-                String filenameSound = String.format(currentLanguage.equals("el") ? "animals%d" : "animalsenglish%d", randomNumer);
+                String filenameSound = currentLanguage.equals("el") ? "alogo":"alogoagglika";
                 int idSound = AnimalsActivity.this.getResources().getIdentifier(filenameSound, "raw", AnimalsActivity.this.getPackageName());
                 questionMediaPlayer = MediaPlayer.create(AnimalsActivity.this, idSound);
                 questionMediaPlayer.start();
+                questionMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        String filenameSound = String.format(currentLanguage.equals("el") ? "animals%d" : "animalsenglish%d", randomNumer);
+                        int idSound = AnimalsActivity.this.getResources().getIdentifier(filenameSound, "raw", AnimalsActivity.this.getPackageName());
+                        questionMediaPlayer =  MediaPlayer.create(AnimalsActivity.this, idSound);
+                        questionMediaPlayer.start();
+                    }
+                });
             }
         });
 
@@ -132,10 +178,19 @@ public class AnimalsActivity extends Activity {
                 if (questionMediaPlayer != null)
                     questionMediaPlayer.release();
                 randomNumer=7;
-                String filenameSound = String.format(currentLanguage.equals("el") ? "animals%d" : "animalsenglish%d", randomNumer);
+                String filenameSound = currentLanguage.equals("el") ? "agelada":"ageladaagglika";
                 int idSound = AnimalsActivity.this.getResources().getIdentifier(filenameSound, "raw", AnimalsActivity.this.getPackageName());
                 questionMediaPlayer = MediaPlayer.create(AnimalsActivity.this, idSound);
                 questionMediaPlayer.start();
+                questionMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        String filenameSound = String.format(currentLanguage.equals("el") ? "animals%d" : "animalsenglish%d", randomNumer);
+                        int idSound = AnimalsActivity.this.getResources().getIdentifier(filenameSound, "raw", AnimalsActivity.this.getPackageName());
+                        questionMediaPlayer =  MediaPlayer.create(AnimalsActivity.this, idSound);
+                        questionMediaPlayer.start();
+                    }
+                });
 
             }
         });
@@ -148,10 +203,19 @@ public class AnimalsActivity extends Activity {
                 if (questionMediaPlayer != null)
                     questionMediaPlayer.release();
                 randomNumer=8;
-                String filenameSound = String.format(currentLanguage.equals("el") ? "animals%d" : "animalsenglish%d", randomNumer);
+                String filenameSound = currentLanguage.equals("el") ? "skilos":"skilosagglika";
                 int idSound = AnimalsActivity.this.getResources().getIdentifier(filenameSound, "raw", AnimalsActivity.this.getPackageName());
                 questionMediaPlayer = MediaPlayer.create(AnimalsActivity.this, idSound);
                 questionMediaPlayer.start();
+                questionMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        String filenameSound = String.format(currentLanguage.equals("el") ? "animals%d" : "animalsenglish%d", randomNumer);
+                        int idSound = AnimalsActivity.this.getResources().getIdentifier(filenameSound, "raw", AnimalsActivity.this.getPackageName());
+                        questionMediaPlayer =  MediaPlayer.create(AnimalsActivity.this, idSound);
+                        questionMediaPlayer.start();
+                    }
+                });
 
             }
         });
@@ -165,10 +229,19 @@ public class AnimalsActivity extends Activity {
                 if (questionMediaPlayer != null)
                     questionMediaPlayer.release();
 randomNumer=1;
-                String filenameSound = String.format(currentLanguage.equals("el") ? "animals%d" : "animalsenglish%d", randomNumer);
+                String filenameSound = currentLanguage.equals("el") ? "kokoras":"kokorasagglika";
                 int idSound = AnimalsActivity.this.getResources().getIdentifier(filenameSound, "raw", AnimalsActivity.this.getPackageName());
                 questionMediaPlayer = MediaPlayer.create(AnimalsActivity.this, idSound);
                 questionMediaPlayer.start();
+                questionMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        String filenameSound = String.format(currentLanguage.equals("el") ? "animals%d" : "animalsenglish%d", randomNumer);
+                        int idSound = AnimalsActivity.this.getResources().getIdentifier(filenameSound, "raw", AnimalsActivity.this.getPackageName());
+                        questionMediaPlayer =  MediaPlayer.create(AnimalsActivity.this, idSound);
+                        questionMediaPlayer.start();
+                    }
+                });
 
             }
         });
@@ -183,10 +256,19 @@ randomNumer=1;
                     questionMediaPlayer.release();
 
                 randomNumer=9;
-                String filenameSound = String.format(currentLanguage.equals("el") ? "animals%d" : "animalsenglish%d", randomNumer);
+                String filenameSound = currentLanguage.equals("el") ? "liontari":"liontariagglika";
                 int idSound = AnimalsActivity.this.getResources().getIdentifier(filenameSound, "raw", AnimalsActivity.this.getPackageName());
                 questionMediaPlayer = MediaPlayer.create(AnimalsActivity.this, idSound);
                 questionMediaPlayer.start();
+                questionMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        String filenameSound = String.format(currentLanguage.equals("el") ? "animals%d" : "animalsenglish%d", randomNumer);
+                        int idSound = AnimalsActivity.this.getResources().getIdentifier(filenameSound, "raw", AnimalsActivity.this.getPackageName());
+                        questionMediaPlayer =  MediaPlayer.create(AnimalsActivity.this, idSound);
+                        questionMediaPlayer.start();
+                    }
+                });
             }
         });
 
@@ -199,10 +281,19 @@ randomNumer=1;
                     questionMediaPlayer.release();
 
                 randomNumer=10;
-                String filenameSound = String.format(currentLanguage.equals("el") ? "animals%d" : "animalsenglish%d", randomNumer);
+                String filenameSound = currentLanguage.equals("el") ? "gata":"gataagglika";
                 int idSound = AnimalsActivity.this.getResources().getIdentifier(filenameSound, "raw", AnimalsActivity.this.getPackageName());
                 questionMediaPlayer = MediaPlayer.create(AnimalsActivity.this, idSound);
                 questionMediaPlayer.start();
+                questionMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        String filenameSound = String.format(currentLanguage.equals("el") ? "animals%d" : "animalsenglish%d", randomNumer);
+                        int idSound = AnimalsActivity.this.getResources().getIdentifier(filenameSound, "raw", AnimalsActivity.this.getPackageName());
+                        questionMediaPlayer =  MediaPlayer.create(AnimalsActivity.this, idSound);
+                        questionMediaPlayer.start();
+                    }
+                });
             }
         });
 
