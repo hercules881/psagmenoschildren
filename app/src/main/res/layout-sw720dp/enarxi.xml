@@ -23,17 +23,6 @@
         android:layout_marginTop="80dp"
 
         />
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:src="@drawable/boy2"
-        android:layout_marginTop="100dp"
-        android:gravity="center_horizontal"
-        android:layout_below="@id/title"
-        android:layout_centerHorizontal="true"
-        android:padding="1dp"
-        />
 
 
 
@@ -348,5 +337,52 @@
             />
 
     </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/linear10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="100dp"
+        android:paddingRight="100dp"
+        android:layout_below="@id/title4"
+        android:layout_marginTop="60dp"
+        android:gravity="center"
+        >
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_weight="50"
+            android:textAllCaps="false"
+            android:layout_marginRight="30dp"
+
+            android:soundEffectsEnabled="true"
+            android:padding="1dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/boy2"
+            />
+
+        <ImageButton
+
+            android:id="@+id/animals"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_weight="50"
+            android:layout_marginLeft="30dp"
+            android:textAllCaps="false"
+            android:background="@drawable/roundbouton"
+            android:soundEffectsEnabled="true"
+            android:padding="8dp"
+            android:textStyle="italic"
+            android:scaleType="fitCenter"
+            android:src="@drawable/lion"
+            />
+    </LinearLayout>
+
+
+
+
 
 </LinearLayout>
