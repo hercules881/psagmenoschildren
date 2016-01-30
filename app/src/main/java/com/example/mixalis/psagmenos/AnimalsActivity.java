@@ -55,7 +55,7 @@ public class AnimalsActivity extends Activity {
                 if (questionMediaPlayer != null)
                     questionMediaPlayer.release();
                 randomNumer=2;
-                String filenameSound = currentLanguage.equals("el") ? "elefantas":"elefantasagglika";
+                String filenameSound = currentLanguage.equals("el") ? "elefantas":"elefantasaglika";
                 int idSound = AnimalsActivity.this.getResources().getIdentifier(filenameSound, "raw", AnimalsActivity.this.getPackageName());
                 questionMediaPlayer = MediaPlayer.create(AnimalsActivity.this, idSound);
                 questionMediaPlayer.start();
