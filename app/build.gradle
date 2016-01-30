@@ -8,7 +8,7 @@ android {
         applicationId "com.rrrr.mixalis.psagmenos"
         minSdkVersion 10   //itan15
         targetSdkVersion 21
-        versionCode 7
+        versionCode 8
         versionName "1.7"
     }
     buildTypes {
