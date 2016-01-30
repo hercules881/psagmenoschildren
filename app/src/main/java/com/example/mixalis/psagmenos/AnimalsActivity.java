@@ -62,7 +62,7 @@ public class AnimalsActivity extends Activity {
                 questionMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                     @Override
                     public void onCompletion(MediaPlayer mp) {
-                        String filenameSound = String.format(currentLanguage.equals("el") ? "animals%d" : "animalsenglish%d", randomNumer);
+                        String filenameSound = String.format("animals%d", randomNumer);
                         int idSound = AnimalsActivity.this.getResources().getIdentifier(filenameSound, "raw", AnimalsActivity.this.getPackageName());
                         questionMediaPlayer =  MediaPlayer.create(AnimalsActivity.this, idSound);
                         questionMediaPlayer.start();
@@ -87,7 +87,7 @@ public class AnimalsActivity extends Activity {
                 questionMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                     @Override
                     public void onCompletion(MediaPlayer mp) {
-                        String filenameSound = String.format(currentLanguage.equals("el") ? "animals%d" : "animalsenglish%d", randomNumer);
+                        String filenameSound = String.format("animals%d", randomNumer);
                         int idSound = AnimalsActivity.this.getResources().getIdentifier(filenameSound, "raw", AnimalsActivity.this.getPackageName());
                         questionMediaPlayer =  MediaPlayer.create(AnimalsActivity.this, idSound);
                         questionMediaPlayer.start();
@@ -112,7 +112,7 @@ public class AnimalsActivity extends Activity {
                 questionMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                     @Override
                     public void onCompletion(MediaPlayer mp) {
-                        String filenameSound = String.format(currentLanguage.equals("el") ? "animals%d" : "animalsenglish%d", randomNumer);
+                        String filenameSound = String.format("animals%d", randomNumer);
                         int idSound = AnimalsActivity.this.getResources().getIdentifier(filenameSound, "raw", AnimalsActivity.this.getPackageName());
                         questionMediaPlayer =  MediaPlayer.create(AnimalsActivity.this, idSound);
                         questionMediaPlayer.start();
@@ -136,7 +136,7 @@ public class AnimalsActivity extends Activity {
                 questionMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                     @Override
                     public void onCompletion(MediaPlayer mp) {
-                        String filenameSound = String.format(currentLanguage.equals("el") ? "animals%d" : "animalsenglish%d", randomNumer);
+                        String filenameSound = String.format("animals%d", randomNumer);
                         int idSound = AnimalsActivity.this.getResources().getIdentifier(filenameSound, "raw", AnimalsActivity.this.getPackageName());
                         questionMediaPlayer =  MediaPlayer.create(AnimalsActivity.this, idSound);
                         questionMediaPlayer.start();
@@ -159,7 +159,7 @@ public class AnimalsActivity extends Activity {
                 questionMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                     @Override
                     public void onCompletion(MediaPlayer mp) {
-                        String filenameSound = String.format(currentLanguage.equals("el") ? "animals%d" : "animalsenglish%d", randomNumer);
+                        String filenameSound = String.format("animals%d", randomNumer);
                         int idSound = AnimalsActivity.this.getResources().getIdentifier(filenameSound, "raw", AnimalsActivity.this.getPackageName());
                         questionMediaPlayer =  MediaPlayer.create(AnimalsActivity.this, idSound);
                         questionMediaPlayer.start();
@@ -185,7 +185,7 @@ public class AnimalsActivity extends Activity {
                 questionMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                     @Override
                     public void onCompletion(MediaPlayer mp) {
-                        String filenameSound = String.format(currentLanguage.equals("el") ? "animals%d" : "animalsenglish%d", randomNumer);
+                        String filenameSound = String.format("animals%d", randomNumer);
                         int idSound = AnimalsActivity.this.getResources().getIdentifier(filenameSound, "raw", AnimalsActivity.this.getPackageName());
                         questionMediaPlayer =  MediaPlayer.create(AnimalsActivity.this, idSound);
                         questionMediaPlayer.start();
@@ -210,7 +210,7 @@ public class AnimalsActivity extends Activity {
                 questionMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                     @Override
                     public void onCompletion(MediaPlayer mp) {
-                        String filenameSound = String.format(currentLanguage.equals("el") ? "animals%d" : "animalsenglish%d", randomNumer);
+                        String filenameSound = String.format("animals%d", randomNumer);
                         int idSound = AnimalsActivity.this.getResources().getIdentifier(filenameSound, "raw", AnimalsActivity.this.getPackageName());
                         questionMediaPlayer =  MediaPlayer.create(AnimalsActivity.this, idSound);
                         questionMediaPlayer.start();
@@ -236,7 +236,7 @@ randomNumer=1;
                 questionMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                     @Override
                     public void onCompletion(MediaPlayer mp) {
-                        String filenameSound = String.format(currentLanguage.equals("el") ? "animals%d" : "animalsenglish%d", randomNumer);
+                        String filenameSound = String.format("animals%d", randomNumer);
                         int idSound = AnimalsActivity.this.getResources().getIdentifier(filenameSound, "raw", AnimalsActivity.this.getPackageName());
                         questionMediaPlayer =  MediaPlayer.create(AnimalsActivity.this, idSound);
                         questionMediaPlayer.start();
@@ -263,7 +263,7 @@ randomNumer=1;
                 questionMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                     @Override
                     public void onCompletion(MediaPlayer mp) {
-                        String filenameSound = String.format(currentLanguage.equals("el") ? "animals%d" : "animalsenglish%d", randomNumer);
+                        String filenameSound = String.format("animals%d", randomNumer);
                         int idSound = AnimalsActivity.this.getResources().getIdentifier(filenameSound, "raw", AnimalsActivity.this.getPackageName());
                         questionMediaPlayer =  MediaPlayer.create(AnimalsActivity.this, idSound);
                         questionMediaPlayer.start();
@@ -288,7 +288,7 @@ randomNumer=1;
                 questionMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                     @Override
                     public void onCompletion(MediaPlayer mp) {
-                        String filenameSound = String.format(currentLanguage.equals("el") ? "animals%d" : "animalsenglish%d", randomNumer);
+                        String filenameSound = String.format("animals%d", randomNumer);
                         int idSound = AnimalsActivity.this.getResources().getIdentifier(filenameSound, "raw", AnimalsActivity.this.getPackageName());
                         questionMediaPlayer =  MediaPlayer.create(AnimalsActivity.this, idSound);
                         questionMediaPlayer.start();
