@@ -13,6 +13,9 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import Database.ExternalDbOpenHelper;
 import Misc.Preferences;
 
@@ -42,6 +45,17 @@ int mousiki=0;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.enarxi);
+
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        // All emulators
+        //    .addTestDevice("B91B02905799AD43D0D499D045263F18").build();  // An example device ID
+        //vaze auto se release AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+
+
+
         initCats();
 
 

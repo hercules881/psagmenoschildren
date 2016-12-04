@@ -13,6 +13,9 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.util.Locale;
 
 import Misc.Preferences;
@@ -45,7 +48,12 @@ public class AnimalsActivity extends Activity {
         SharedPreferences preferences = this.getSharedPreferences(this.getPackageName(), Context.MODE_PRIVATE);
         currentLanguage = preferences.getString(MainActivity.LANGUAGE_KEY, Locale.getDefault().getLanguage().startsWith("el")?"el": "en");
 
-
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        // All emulators
+        //    .addTestDevice("B91B02905799AD43D0D499D045263F18").build();  // An example device ID
+        //vaze auto se release AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
 
 

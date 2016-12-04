@@ -16,7 +16,7 @@
         android:paddingLeft="40dp"
         android:paddingRight="40dp"
         android:layout_below="@id/linear1"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="5dp"
         android:gravity="center">
 
 
@@ -251,6 +251,16 @@
             />
     </LinearLayout>
 
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
 
+        android:layout_marginTop="32dp"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-6177530795205721/2638295892">
+
+    </com.google.android.gms.ads.AdView>
 
 </LinearLayout>

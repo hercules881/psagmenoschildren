@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:noHistory = "true"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:noHistory="true"
     android:clickable="false"
     android:focusable="false"
     android:background="@drawable/fonto6"
@@ -407,6 +408,15 @@
             />
 
     </LinearLayout>
-
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="50dp"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-6177530795205721/2638295892">
+    </com.google.android.gms.ads.AdView>
 
 </LinearLayout>

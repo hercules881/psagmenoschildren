@@ -27,6 +27,9 @@ import android.view.Menu;
 import android.widget.Toast;
 
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.sql.SQLException;
 import java.util.Locale;
 
@@ -63,6 +66,18 @@ int mousiki=0;
         String currentLanguage = preferences.getString(LANGUAGE_KEY,Locale.getDefault().getLanguage().startsWith("el")?"el": "en");
 
         Resources res = MainActivity.this.getResources();
+
+
+       /* AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        // All emulators
+        //    .addTestDevice("B91B02905799AD43D0D499D045263F18").build();  // An example device ID
+        //vaze auto se release AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);*/
+
+
+
+
         // Change locale settings in the app.
         Locale locale = new Locale(currentLanguage);
         Locale.setDefault(locale);

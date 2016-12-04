@@ -13,6 +13,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
@@ -64,7 +67,12 @@ int mousiki=0;
         Intent intent = getIntent();
         setContentView(R.layout.gameshapes);
 
-
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        // All emulators
+        //    .addTestDevice("B91B02905799AD43D0D499D045263F18").build();  // An example device ID
+        //vaze auto se release AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
         final String epelexes = intent.getExtras().getString("epelexes");
         TextView title = (TextView) findViewById(R.id.title);
         title.setText(epelexes);
